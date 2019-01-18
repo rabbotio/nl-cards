@@ -7,9 +7,11 @@ import terms from './datas/ml/terms.json'
 
 class App extends Component {
   render() {
-    const front = QuestionFactory.term('Recall')
-    console.log(terms[0])
-    const back = AnswerFactory.math(terms[0])
+    const term = terms[Math.floor(terms.length * Math.random())]
+    const front = QuestionFactory.term({
+      topic: term.topic
+    })
+    const back = AnswerFactory.math({ math: term.math, desc: term.desc })
 
     return (
       <div className="App">

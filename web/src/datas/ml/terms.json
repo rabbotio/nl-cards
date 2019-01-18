@@ -1,5 +1,16 @@
 [
     {
+        "topic": "Accuracy",
+        "math": "\\text{Accuracy} = \\frac{TP+TN}{TP+TN+FP+FN}",
+        "desc": "The fraction of predictions that a classification model got right."
+    },
+    {
+        "topic": "Precision",
+        "math": "\\text{Precision} = \\frac{TP}{TP+FP}",
+        "desc": "A metric for classification models. Precision identifies the frequency with which a model was correct when predicting the positive class."
+    },
+    {
+        "topic": "Recall",
         "math": "\\text{Recall} = \\frac{\\text{True Positives}} {\\text{True Positives} + \\text{False Negatives}}",
         "desc": "A metric for classification models that answers the following question: Out of all the possible positive labels, how many did the model correctly identify?"
     }
