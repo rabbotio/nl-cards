@@ -3,14 +3,13 @@ import './App.css';
 import Card from './components/Card';
 import QuestionFactory from './factory/QuestionFactory'
 import AnswerFactory from './factory/AnswerFactory';
+import terms from './datas/ml/terms.json'
 
 class App extends Component {
   render() {
     const front = QuestionFactory.term('Recall')
-    const back = AnswerFactory.term(
-      '\\text{Recall} = \\frac{\\text{True Positives}} {\\text{True Positives} + \\text{False Negatives}}',
-      'A metric for classification models that answers the following question: Out of all the possible positive labels, how many did the model correctly identify?'
-    )
+    console.log(terms[0])
+    const back = AnswerFactory.math(terms[0])
 
     return (
       <div className="App">

@@ -2,7 +2,7 @@ import React from 'react';
 import MathJax from 'react-mathjax2'
 
 export default class AnswerFactory {
-    static term(title, desc) {
+    static math({ math, desc }) {
         return (
             <div>
                 <MathJax.Context
@@ -23,7 +23,7 @@ export default class AnswerFactory {
                         }
                     }}
                 >
-                    <MathJax.Text text={`$$${title}$$`} />
+                    <MathJax.Text text={`$$${math}$$`} />
                 </MathJax.Context>
                 <p>{desc}</p>
             </div>
