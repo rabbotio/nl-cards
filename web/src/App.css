@@ -41,7 +41,7 @@
 }
 
 /* Do an horizontal flip when you move the mouse over the flip box container */
-.flip-card:hover .flip-card-inner {
+.flip-card:down .flip-card-inner {
   transform: rotateY(180deg);
 }
 
@@ -55,19 +55,18 @@
   border-radius: 12px;
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
   box-sizing: border-box;
-  padding: 48px;
   text-align: center;
 }
 
 /* Style the front side (fallback if image is missing) */
 .flip-card-front {
-  background-color: #bbb;
-  color: black;
+  background-color: #607D8B;
+  color: white;
 }
 
 /* Style the back side */
 .flip-card-back {
-  background-color: dodgerblue;
+  background-color: #03A9F4;
   color: white;
   transform: rotateY(180deg);
 }
