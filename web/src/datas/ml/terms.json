@@ -1,23 +1,50 @@
 [
     {
-        "topic": "Accuracy",
-        "math": "\\text{Accuracy} = \\frac{TP+TN}{TP+TN+FP+FN}",
-        "desc": "The fraction of predictions that a classification model got right."
+        "front": {
+            "title": "Accuracy"
+        },
+        "back": {
+            "math": "\\text{Accuracy} = \\frac{TP+TN}{TP+TN+FP+FN}",
+            "desc": "The fraction of predictions that a classification model got right."
+        }
     },
     {
-        "topic": "Precision",
-        "math": "\\text{Precision} = \\frac{TP}{TP+FP}",
-        "desc": "A metric for classification models. Precision identifies the frequency with which a model was correct when predicting the positive class."
+        "front": {
+            "title": "Precision"
+        },
+        "back": {
+            "math": "\\text{Precision} = \\frac{TP}{TP+FP}",
+            "desc": "A metric for classification models. Precision identifies the frequency with which a model was correct when predicting the positive class."
+        }
     },
     {
-        "topic": "Recall",
-        "math": "\\text{Recall} = \\frac{\\text{True Positives}} {\\text{True Positives} + \\text{False Negatives}}",
-        "desc": "A metric for classification models that answers the following question: Out of all the possible positive labels, how many did the model correctly identify?"
+        "front": {
+            "title": "Recall"
+        },
+        "back": {
+            "math": "\\text{Recall} = \\frac{\\text{True Positives}} {\\text{True Positives} + \\text{False Negatives}}",
+            "desc": "A metric for classification models that answers the following question: Out of all the possible positive labels, how many did the model correctly identify?"
+        }
     },
     {
-        "topic": "L<sub>2</sub> Regularization",
-        "desc": "A type of regularization that penalizes weights in proportion to the sum of the squares of the weights.",
-        "math": "L_2\\text{ Regularization} = ||\\boldsymbol w||_2^2 = {w_1^2 + w_2^2 + ... + w_n^2}",
-        "bullets": "⭐ Drive outlier weights (high positive or low negative values) closer to 0 but not quite to 0.<br/><br/>⭐ Always improves generalization in linear models."
+        "front": {
+            "title": "L<sub>2</sub> Regularization"
+        },
+        "back": {
+            "desc": "A type of regularization that penalizes weights in proportion to the sum of the squares of the weights.",
+            "math": "L_2\\text{ Regularization} = ||\\boldsymbol w||_2^2 = {w_1^2 + w_2^2 + ... + w_n^2}",
+            "bullets": "⭐ Drive outlier weights (high positive or low negative values) closer to 0 but not quite to 0.<br/>⭐ Always improves generalization in linear models."
+        }
+    },
+    {
+        "front": {
+            "title": "Supervised Machine Learning",
+            "image": "./ml/img/supervised.svg"
+        },
+        "back": {
+            "desc": "Training a model from <b>input</b> data and its corresponding <b>labels</b>.<br>Provide answers for never-before-seen questions on the same topic",
+            "math": "\\text{Labeled Data} \\xrightarrow[\\text{features x}]{\\text{labels y}} \\text{Predictive Model}",
+            "bullets": "⭐ x is feature.<br/>⭐ y is label."
+        }
     }
 ]
