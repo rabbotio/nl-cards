@@ -42,7 +42,7 @@
             "image": "./ml/img/supervised.svg"
         },
         "back": {
-            "desc": "Training a model from <b>input</b> data and its corresponding <b>labels</b>.<br>Provide answers for never-before-seen questions on the same topic",
+            "desc": "Training a <b>model</b> from input data and its corresponding labels.<br>Provide answers for never-before-seen questions on the same topic",
             "math": "\\text{Labeled Data} \\xrightarrow[\\text{features x}]{\\text{labels y}} \\text{Predictive Model}",
             "bullets": "⭐ x is feature.<br/>⭐ y is label."
         }
