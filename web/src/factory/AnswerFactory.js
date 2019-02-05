@@ -32,16 +32,19 @@ const Bullets = styled.div`
 
   ul {
     list-style: none;
-
     margin-left: 0.5em;
     padding-left: 0;
+    padding-top: 0.5em;
   }
 
   li {
     padding-left: 1em;
     text-indent: -1.7em;
-    line-height: 1.6em;
-    margin-block-start: -1em;
+    line-height: 1.2em;
+    margin-block-start: -0.5em;
+    #min-height: 2.2em;
+    padding-top: 0.5em;
+    padding-bottom: 0.5em;
   }
 
   li:before {
