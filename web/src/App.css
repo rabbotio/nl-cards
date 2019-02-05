@@ -26,7 +26,6 @@
   background-color: transparent;
   width: 480px;
   height: 320px;
-  border: 1px solid #f1f1f1;
   perspective: 1000px; /* Remove this if you don't want the 3D effect */
 }
 
@@ -61,14 +60,14 @@
 
 /* Style the front side (fallback if image is missing) */
 .flip-card-front {
-  background-color: #78909c;
-  color: white;
+  background-color: #bdc3c7;
+  color: #2c3e50;
 }
 
 /* Style the back side */
 .flip-card-back {
-  background-color: #90a4ae;
-  color: black;
+  background-color: #7f8c8d;
+  color: white;
   transform: rotateY(180deg);
 }
 

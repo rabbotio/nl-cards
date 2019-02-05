@@ -48,17 +48,15 @@ const FlexBullet = ({ left = null, right = null }) => {
     li {
       padding-left: 1em;
       text-indent: -1.7em;
-      #line-height: 1.2em;
       margin-block-start: -0.5em;
-      #min-height: 2.2em;
-      #padding-top: 0.5em;
-      padding-bottom: 0.5em;
+      padding-bottom: 0.8em;
       ${isDFN ? 'margin-block-start: -1em' : ''};
     }
 
     li:before {
-      content: '⭐';
-      padding-right: 5px;
+      content: '★';
+      padding-right: 0.8em;
+      color: #f1c40f;
     }
   `
   return (

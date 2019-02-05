@@ -87,7 +87,7 @@
             "math": "y' = b + w_1x_1",
             "bullets": [
                 "<dfn>\\[y'\\]</dfn> is the predicted label (a desired output).",
-                "<dfn>\\[b\\]</dfn> (or <dfn>\\[w_0\\]</dfn>) is the bias (the y-intercept)",
+                "<dfn>\\[b\\]</dfn> (or <dfn>\\[w_0\\]</dfn>) is the bias (the y-intercept).",
                 "<dfn>\\[w_1\\]</dfn> is the weight (slope) of feature 1.",
                 "<dfn>\\[x_1\\]</dfn>  is a feature (a known input)."
             ]
