@@ -28,7 +28,31 @@ const Bullets = styled.div`
   display: flex;
   flex: 0.4;
   text-align: left;
+  font-size: 0.8em;
+
+  ul {
+    list-style: none;
+
+    margin-left: 0.5em;
+    padding-left: 0;
+  }
+
+  li {
+    padding-left: 1em;
+    text-indent: -1.7em;
+    line-height: 1.6em;
+    margin-block-start: -1em;
+  }
+
+  li:before {
+    content: '⭐';
+    padding-right: 5px;
+  }
 `
+
+const makeBullets = bullets => {
+  return `<ul>` + bullets.map(element => `<li>${element}</li>`).join('') + `</ul>`
+}
 
 export default class AnswerFactory {
   static build ({ math, desc, bullets, image }) {
@@ -62,7 +86,7 @@ export default class AnswerFactory {
           </InnerContent>
         </Math>
         <Bullets>
-          <InnerContent>{ReactHtmlParser(bullets)}</InnerContent>
+          <InnerContent>{ReactHtmlParser(makeBullets(bullets))}</InnerContent>
         </Bullets>
       </Flex>
     )
