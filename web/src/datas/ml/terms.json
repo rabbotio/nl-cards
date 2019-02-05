@@ -8,7 +8,9 @@
             "desc": "The fraction of predictions that a classification model got right.",
             "bullets": [
                 "T = True",
-                "F = False",
+                "F = False"
+            ],
+            "bullets_extra": [
                 "P = Positives",
                 "N = Negatives"
             ]
@@ -23,7 +25,9 @@
             "desc": "A metric for classification models. Precision identifies the frequency with which a model was correct when predicting the positive class.",
             "bullets": [
                 "T = True",
-                "F = False",
+                "F = False"
+            ],
+            "bullets_extra": [
                 "P = Positives",
                 "N = Negatives"
             ]
@@ -38,7 +42,9 @@
             "desc": "A metric for classification models that answers the following question: Out of all the possible positive labels, how many did the model correctly identify?",
             "bullets": [
                 "T = True",
-                "F = False",
+                "F = False"
+            ],
+            "bullets_extra": [
                 "P = Positives",
                 "N = Negatives"
             ]
