@@ -159,5 +159,17 @@
                 "<dfn>\\[N\\]</dfn> is the number of examples in <dfn>\\[D\\]</dfn>."
             ]
         }
+    },
+    {
+        "front": {
+            "title": "Gradient Descent"
+        },
+        "back": {
+            "desc": "A technique to minimize loss by computing the gradients of loss with respect to the model's parameters, conditioned on training data.",
+            "image": "./ml/img/gradient_descent.svg",
+            "bullets": [
+                "Informally, gradient descent iteratively adjusts parameters, gradually finding the best combination of weights and bias to minimize loss."
+            ]
+        }
     }
 ]

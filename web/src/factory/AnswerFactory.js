@@ -4,6 +4,7 @@ import ReactHtmlParser from 'react-html-parser'
 import styled from 'styled-components'
 
 const Flex = styled.div`
+  font-size: 0.85em;
   display: flex;
   flex-direction: column;
   height: 320px;
@@ -25,7 +26,6 @@ const Desc = styled.div`
   flex: 0.4;
   display: flex;
   line-height: 1.6em;
-  font-size: 0.9em;
   text-align: left;
 `
 
@@ -49,7 +49,6 @@ const FlexBullet = ({ left = null, right = null }) => {
     display: flex;
     flex: 0.4;
     text-align: left;
-    font-size: 0.8em;
     justify-content: space-evenly;
 
     ul {
