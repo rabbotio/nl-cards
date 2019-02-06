@@ -54,6 +54,7 @@ const FlexBullet = ({ left = null, right = null }) => {
       padding-left: 1em;
       text-indent: -1.7em;
       padding-bottom: 0.8em;
+      line-height: 0.7em;
     }
 
     li:before {

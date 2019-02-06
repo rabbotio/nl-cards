@@ -65,8 +65,7 @@
     },
     {
         "front": {
-            "title": "Supervised Machine Learning",
-            "image": "./ml/img/supervised.svg"
+            "title": "Supervised Machine Learning"
         },
         "back": {
             "desc": "Training a <b>model</b> from input data and its corresponding labels.<br>Provide answers for never-before-seen questions on the same topic",
@@ -95,17 +94,43 @@
     },
     {
         "front": {
-            "title": "L<sub>2</sub> Loss",
-            "image": "./ml/img/supervised.svg"
+            "title": "Training"
+        },
+        "back": {
+            "desc": "<b>Training</b> a model simply means learning (determining) good values for all the weights and the bias from labeled examples. ",
+            "math": "\\text{Labeled Data} \\xrightarrow[\\text{features x}]{\\text{labels y}} \\text{Predictive Model}",
+            "bullets": [
+                "In supervised learning, a machine learning algorithm builds a model by examining many examples and attempting to find a model that minimizes loss.",
+                "The goal of training a model is to find a set of weights and biases that have low loss, on average, across all examples. "
+            ]
+        }
+    },
+    {
+        "front": {
+            "title": "L<sub>2</sub> Loss"
         },
         "back": {
             "desc": "The <b>loss function</b> calculates the squares of the difference between a model's predicted value for a labeled example and the actual value of the label.",
-            "math2": "\\begin{equation}\\begin{split}\\&text{= the square of the difference between the label and the prediction} \\\\ &= (observation - prediction(x))2 \\\\ &= (y - y')2 \\end{split}\\end{equation}",
             "math": "\\begin{align}L_2 Loss &= (observation - prediction(x))^2\\\\&= (y - y')^2 \\end{align}",
             "bullets": [
                 "Used in linear regression.",
                 "Due to squaring, this loss function amplifies the influence of bad predictions.",
                 "Squared loss reacts more strongly to outliers than <dfn>\\[L_1\\]</dfn> Loss."
+            ]
+        }
+    },
+    {
+        "front": {
+            "title": "Mean Square Error (MSE)"
+        },
+        "back": {
+            "desc": "<b>Mean Square Error (MSE)</b> is the average squared loss per example over the whole dataset.",
+            "math": "MSE = \\frac{1}{N} \\sum_{(x,y)\\in D} (y - prediction(x))^2",
+            "bullets": [
+                "<dfn>\\[x\\]</dfn> is the set of features, <dfn>\\[y\\]</dfn> is the example's label",
+                "<dfn>\\[prediction(x)\\]</dfn> is a function of the weights and bias in combination with the set of features <dfn>\\[x\\]</dfn>",
+                "<dfn>\\[D\\]</dfn> is a data set containing many labeled examples, which are <dfn>\\[(x,y)\\]</dfn>.",
+                "<dfn>\\[N\\]</dfn> is the number of examples in <dfn>\\[D\\]</dfn>."
             ]
         }
     }
