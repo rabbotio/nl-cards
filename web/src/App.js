@@ -8,7 +8,7 @@ import terms from './datas/ml/terms.json'
 
 class App extends Component {
   render () {
-    const term = terms[11] // terms[Math.floor(terms.length * Math.random())]
+    const term = terms[12] // terms[Math.floor(terms.length * Math.random())]
     const front = QuestionFactory.build(term.front)
     const back = AnswerFactory.build(term.back)
 

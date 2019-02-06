@@ -171,5 +171,18 @@
                 "Informally, gradient descent iteratively adjusts parameters, gradually finding the best combination of weights and bias to minimize loss."
             ]
         }
+    },
+    {
+        "front": {
+            "title": "Learning Rate"
+        },
+        "back": {
+            "desc": "Gradient descent algorithms multiply the gradient by a scalar known as the <b>learning rate</b> to determine the next point.",
+            "image": "./ml/img/learning_rate.svg",
+            "bullets": [
+                "Also know as <b>step size</b>",
+                "Learning rate is a key <b>hyperparameter</b>."
+            ]
+        }
     }
 ]
