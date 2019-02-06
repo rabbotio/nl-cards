@@ -14,6 +14,10 @@ const InnerContent = styled.div`
   margin-left: 16px;
   margin-right: 16px;
   ${props => `display:${props.display === undefined || props.display !== null ? 'block' : 'none'}`}
+  img {
+    width: 100%;
+    height: auto;
+  }
 `
 
 const Desc = styled.div`
@@ -52,7 +56,6 @@ const FlexBullet = ({ left = null, right = null }) => {
       list-style: none;
       margin-left: 0.5em;
       padding-left: 0;
-      padding-top: 0.5em;
     }
 
     li {
