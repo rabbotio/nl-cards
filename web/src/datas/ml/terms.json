@@ -92,5 +92,21 @@
                 "<dfn>\\[x_1\\]</dfn>  is a feature (a known input)."
             ]
         }
+    },
+    {
+        "front": {
+            "title": "L<sub>2</sub> Loss",
+            "image": "./ml/img/supervised.svg"
+        },
+        "back": {
+            "desc": "The <b>loss function</b> calculates the squares of the difference between a model's predicted value for a labeled example and the actual value of the label.",
+            "math2": "\\begin{equation}\\begin{split}\\&text{= the square of the difference between the label and the prediction} \\\\ &= (observation - prediction(x))2 \\\\ &= (y - y')2 \\end{split}\\end{equation}",
+            "math": "\\begin{align}L_2 Loss &= (observation - prediction(x))^2\\\\&= (y - y')^2 \\end{align}",
+            "bullets": [
+                "Used in linear regression.",
+                "Due to squaring, this loss function amplifies the influence of bad predictions.",
+                "Squared loss reacts more strongly to outliers than <dfn>\\[L_1\\]</dfn> Loss."
+            ]
+        }
     }
 ]

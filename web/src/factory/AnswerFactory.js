@@ -26,11 +26,16 @@ const Desc = styled.div`
 `
 
 const makeBullets = bullets => {
-  return bullets ? `<ul>` + bullets.map(element => `<li>${element}</li>`).join('') + `</ul>` : ''
+  return bullets
+    ? `<ul>` +
+        bullets
+          .map(element => `<li style=${element.indexOf('<dfn>') > -1 ? 'margin-top:-1em' : undefined}>${element}</li>`)
+          .join('') +
+        `</ul>`
+    : ''
 }
 
 const FlexBullet = ({ left = null, right = null }) => {
-  const isDFN = left.join(',').indexOf('<dfn>') > -1
   const Bullets = styled.div`
     display: flex;
     flex: 0.4;
@@ -48,15 +53,14 @@ const FlexBullet = ({ left = null, right = null }) => {
     li {
       padding-left: 1em;
       text-indent: -1.7em;
-      margin-block-start: -0.5em;
       padding-bottom: 0.8em;
-      ${isDFN ? 'margin-block-start: -1em' : ''};
     }
 
     li:before {
       content: '★';
       padding-right: 0.8em;
       color: #f1c40f;
+      text-shadow: -1px 0 #757575, 0 1px #757575, 1px 0 #757575, 0 -1px #757575;
     }
   `
   return (

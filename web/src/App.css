@@ -40,7 +40,7 @@
 }
 
 /* Do an horizontal flip when you move the mouse over the flip box container */
-.flip-card:click .flip-card-inner {
+.flip-card:hover .flip-card-inner {
   transform: rotateY(180deg);
 }
 
@@ -60,19 +60,19 @@
 
 /* Style the front side (fallback if image is missing) */
 .flip-card-front {
-  background-color: #bdc3c7;
-  color: #2c3e50;
+  background-color: #7f8c8d;
+  color: white;
 }
 
 /* Style the back side */
 .flip-card-back {
-  background-color: #7f8c8d;
-  color: white;
+  background-color: #bdc3c7;
+  color: #2c3e50;
   transform: rotateY(180deg);
 }
 
 b {
-  color: white;
+  color:#2c3e50;
 }
 
 dfn {
