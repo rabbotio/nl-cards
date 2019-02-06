@@ -10,7 +10,10 @@
                 "Predictive model can then serve up predictions about previously unseen data.",
                 "We use these predictions to take action in a product."
             ]
-        }
+        },
+        "res": [
+            "[Framing : Model](https://developers.google.com/machine-learning/crash-course/framing/ml-terminology)"
+        ]
     },
     {
         "front": {
@@ -27,7 +30,8 @@
                 "P = Positives",
                 "N = Negatives"
             ]
-        }
+        },
+        "res": []
     },
     {
         "front": {
@@ -44,7 +48,8 @@
                 "P = Positives",
                 "N = Negatives"
             ]
-        }
+        },
+        "res": []
     },
     {
         "front": {
@@ -61,7 +66,8 @@
                 "P = Positives",
                 "N = Negatives"
             ]
-        }
+        },
+        "res": []
     },
     {
         "front": {
@@ -74,20 +80,24 @@
                 "Drive outlier weights (high positive or low negative values) closer to 0 but not quite to 0.",
                 "Always improves generalization in linear models."
             ]
-        }
+        },
+        "res": []
     },
     {
         "front": {
             "title": "Supervised Machine Learning"
         },
         "back": {
-            "desc": "Training a <b>model</b> from input data and its corresponding labels.<br>Provide answers for never-before-seen questions on the same topic",
+            "desc": "Training a <b>model</b> from input data and its corresponding labels. Provide answers for never-before-seen questions on the same topic",
             "math": "\\text{Labeled Data} \\xrightarrow[\\text{features x}]{\\text{labels y}} \\text{Predictive Model}",
             "bullets": [
                 "<dfn>\\[x\\]</dfn> is feature.<br/>",
                 "<dfn>\\[y\\]</dfn> is label."
             ]
-        }
+        },
+        "res": [
+            "[Supervised Machine Learning](https://developers.google.com/machine-learning/glossary/#supervised_machine_learning)"
+        ]
     },
     {
         "front": {
@@ -103,7 +113,10 @@
                 "<dfn>\\[w_1\\]</dfn> is the weight (slope) of feature 1.",
                 "<dfn>\\[x_1\\]</dfn>  is a feature (a known input)."
             ]
-        }
+        },
+        "res": [
+            "[Descending into ML: Linear Regression](https://developers.google.com/machine-learning/crash-course/descending-into-ml/linear-regression)"
+        ]
     },
     {
         "front": {
@@ -116,7 +129,10 @@
                 "In supervised learning, a machine learning algorithm builds a model by examining many examples and attempting to find a model that minimizes loss.",
                 "The goal of training a model is to find a set of weights and biases that have low loss, on average, across all examples."
             ]
-        }
+        },
+        "res": [
+            "[Descending into ML: Training and Loss](https://developers.google.com/machine-learning/crash-course/descending-into-ml/training-and-loss)"
+        ]
     },
     {
         "front": {
@@ -129,7 +145,10 @@
                 "If the model's prediction is perfect, the loss is zero; otherwise, the loss is greater.",
                 "Loss function is a mathematical function that would aggregate the individual losses in a meaningful fashion."
             ]
-        }
+        },
+        "res": [
+            "[Descending into ML: Training and Loss](https://developers.google.com/machine-learning/crash-course/descending-into-ml/training-and-loss)"
+        ]
     },
     {
         "front": {
@@ -143,7 +162,10 @@
                 "Due to squaring, this loss function amplifies the influence of bad predictions.",
                 "Squared loss reacts more strongly to outliers than <dfn>\\[L_1\\]</dfn> Loss."
             ]
-        }
+        },
+        "res": [
+            "[Descending into ML: Training and Loss](https://developers.google.com/machine-learning/crash-course/descending-into-ml/training-and-loss)"
+        ]
     },
     {
         "front": {
@@ -158,7 +180,10 @@
                 "<dfn>\\[D\\]</dfn> is a data set containing many labeled examples, which are <dfn>\\[(x,y)\\]</dfn>.",
                 "<dfn>\\[N\\]</dfn> is the number of examples in <dfn>\\[D\\]</dfn>."
             ]
-        }
+        },
+        "res": [
+            "[Descending into ML: Mean Square Error (MSE)](https://developers.google.com/machine-learning/crash-course/descending-into-ml/training-and-loss)"
+        ]
     },
     {
         "front": {
@@ -170,7 +195,10 @@
             "bullets": [
                 "Informally, gradient descent iteratively adjusts parameters, gradually finding the best combination of weights and bias to minimize loss."
             ]
-        }
+        },
+        "res": [
+            "[Reducing Loss: Gradient Descent](https://developers.google.com/machine-learning/crash-course/reducing-loss/gradient-descent)"
+        ]
     },
     {
         "front": {
@@ -183,6 +211,48 @@
                 "Also know as <b>step size</b>",
                 "Learning rate is a key <b>hyperparameter</b>."
             ]
+        },
+        "res": [
+            "[Reducing Loss: Learning Rate](https://developers.google.com/machine-learning/crash-course/reducing-loss/learning-rate)",
+            "[Reducing Loss: Optimizing Learning Rate](https://developers.google.com/machine-learning/crash-course/fitter/graph)"
+        ]
+    },
+    {
+        "front": {
+            "title": "Stochastic Gradient Descent"
+        },
+        "back": {
+            "desc": "A gradient descent algorithm in which the batch size is one. In other words, SGD relies on a single example chosen uniformly at random from a dataset to calculate an estimate of the gradient at each step."
         }
+    },
+    {
+        "front": {
+            "title": "Overfitting"
+        },
+        "back": {
+            "desc": "Creating a model that matches the training data so closely that the model fails to make correct predictions on new data."
+        },
+        "res": [
+            "[Generalization: Peril of Overfitting](https://developers.google.com/machine-learning/crash-course/generalization/peril-of-overfitting)"
+        ]
+    },
+    {
+        "front": {
+            "title": "Training and Test Sets"
+        },
+        "back": {
+            "desc": "Make sure that your test set is large enough to yield statistically meaningful results and representative of the data set as a whole.",
+            "image": "./ml/img/training_n_test_set.svg",
+            "bullets": [
+                "Training set = a subset to train a model.",
+                "Test set = a subset to test the trained model.",
+                "Don't pick a different characteristics test set than the training set.",
+                "Never train on test data."
+            ]
+        },
+        "res": [
+            "[Reducing Loss: Learning Rate](https://developers.google.com/machine-learning/crash-course/reducing-loss/learning-rate)",
+            "[Reducing Loss: Optimizing Learning Rate](https://developers.google.com/machine-learning/crash-course/fitter/graph)"
+        ]
     }
 ]

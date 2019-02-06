@@ -4,7 +4,6 @@ import ReactHtmlParser from 'react-html-parser'
 import styled from 'styled-components'
 
 const Flex = styled.div`
-  font-size: 0.85em;
   display: flex;
   flex-direction: column;
   height: 320px;
@@ -25,8 +24,11 @@ const Desc = styled.div`
   align-self: center;
   flex: 0.4;
   display: flex;
-  line-height: 1.6em;
+  line-height: 1.3em;
   text-align: left;
+  font-size: 0.9em;
+  margin-block-start: 1em;
+  margin-block-end: 1em;
 `
 
 const makeBullets = bullets => {
@@ -50,6 +52,7 @@ const FlexBullet = ({ left = null, right = null }) => {
     flex: 0.4;
     text-align: left;
     justify-content: space-evenly;
+    font-size: 0.85em;
 
     ul {
       list-style: none;
