@@ -1,6 +1,19 @@
 [
     {
         "front": {
+            "title": "Model"
+        },
+        "back": {
+            "desc": "The representation of what an ML system has learned from the training data.",
+            "math": "\\text{Data} \\xrightarrow[🤖]{\\text{train}} \\text{Model} \\xrightarrow[🤖]{\\text{predict}} \\text{Prediction}",
+            "bullets": [
+                "Predictive model can then serve up predictions about previously unseen data.",
+                "We use these predictions to take action in a product."
+            ]
+        }
+    },
+    {
+        "front": {
             "title": "Accuracy"
         },
         "back": {

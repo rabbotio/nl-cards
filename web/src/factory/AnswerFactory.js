@@ -29,7 +29,12 @@ const makeBullets = bullets => {
   return bullets
     ? `<ul>` +
         bullets
-          .map(element => `<li style=${element.indexOf('<dfn>') > -1 ? 'margin-top:-1em' : undefined}>${element}</li>`)
+          .map(
+            element =>
+              `<li style=${
+                element.indexOf('<dfn>') > -1 ? '"margin-top:-1em; line-height: 0.7em;"' : undefined
+              }>${element}</li>`
+          )
           .join('') +
         `</ul>`
     : ''
@@ -54,7 +59,6 @@ const FlexBullet = ({ left = null, right = null }) => {
       padding-left: 1em;
       text-indent: -1.7em;
       padding-bottom: 0.8em;
-      line-height: 0.7em;
     }
 
     li:before {
