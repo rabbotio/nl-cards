@@ -11,21 +11,15 @@ const CardContainer = styled.div`
 `
 
 function makeCard (data) {
-  return data.map(({ front, back }) => {
+  return data.map(({ front, back }, index) => {
     const _front = QuestionFactory.build(front)
     const _back = AnswerFactory.build(back)
 
-    return <Card front={_front} back={_back} />
+    return <Card key={index} front={_front} back={_back} />
   })
 }
 
 function CardList ({ data }) {
-  const cards = data.forEach(({ front, back }) => {
-    const _front = QuestionFactory.build(front)
-    const _back = AnswerFactory.build(back)
-
-    return <Card front={_front} back={_back} />
-  })
   return <CardContainer>{makeCard(data)}</CardContainer>
 }
 
