@@ -102,7 +102,7 @@ export default class AnswerFactory {
         </Desc>
         <Image>
           <InnerContent>
-            <img src={`${image}`} />
+            <img src={image} alt={desc} />
           </InnerContent>
         </Image>
         <Math>

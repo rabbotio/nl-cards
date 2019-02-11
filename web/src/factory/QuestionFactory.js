@@ -37,7 +37,7 @@ export default class QuestionFactory {
         </Title>
         <Image>
           <InnerContent>
-            <img src={`${image}`} />
+            <img src={image} alt={title} />
           </InnerContent>
         </Image>
       </Flex>
