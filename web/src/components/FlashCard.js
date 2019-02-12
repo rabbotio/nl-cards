@@ -10,9 +10,9 @@ const CardContainer = styled.div`
   flex-wrap: wrap;
 `
 
-function makeCard (data) {
-  const _front = QuestionFactory.build(data[0].front)
-  const _back = AnswerFactory.build(data[0].back)
+function makeCard ({ front, back }) {
+  const _front = QuestionFactory.build(front)
+  const _back = AnswerFactory.build(back)
   return <Card front={_front} back={_back} />
 }
 

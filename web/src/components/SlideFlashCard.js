@@ -1,29 +1,28 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import FlashCard from './FlashCard'
 import QuickReplyButtonList from './QuickReplyButtonList'
 import { FlashCardContext } from './FlashCardContext'
 
-function SlideFlashCard ({ data }) {
+function SlideFlashCard ({ datas, index = 0 }) {
+  // const [count, setCount] = useState(index)
+  const { next, retry } = useContext(FlashCardContext)
+
+  const quickReplyButtons = [
+    {
+      title: 'What?',
+      cmd: retry
+    },
+    {
+      title: `Next`,
+      cmd: next
+    }
+  ]
+
   return (
-    <FlashCardContext.Consumer>
-      {({ next, retry }) => (
-        <div>
-          <FlashCard data={data} />
-          <QuickReplyButtonList
-            data={[
-              {
-                title: 'What?',
-                cmd: retry
-              },
-              {
-                title: `Next`,
-                cmd: next
-              }
-            ]}
-          />
-        </div>
-      )}
-    </FlashCardContext.Consumer>
+    <div>
+      <FlashCard data={datas[index]} />
+      <QuickReplyButtonList data={quickReplyButtons} />
+    </div>
   )
 }
 
