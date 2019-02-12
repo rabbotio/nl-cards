@@ -22,7 +22,7 @@ const InnerContent = styled.div`
 
 const Desc = styled.div`
   align-self: center;
-  flex: 0.4;
+  flex: 0.3;
   display: flex;
   line-height: 1.3em;
   text-align: left;
@@ -38,7 +38,7 @@ const makeBullets = bullets => {
           .map(
             element =>
               `<li style=${
-                element.indexOf('<dfn>') > -1 ? '"margin-top:-1em; line-height: 0.7em;"' : undefined
+                element.indexOf('<dfn>') > -1 ? '"margin-top:-1em; line-height: 0.6em;"' : undefined
               }>${element}</li>`
           )
           .join('') +
@@ -49,7 +49,7 @@ const makeBullets = bullets => {
 const FlexBullet = ({ left = null, right = null }) => {
   const Bullets = styled.div`
     display: flex;
-    flex: 0.4;
+    flex: 0.6;
     text-align: left;
     justify-content: space-evenly;
     font-size: 0.85em;
@@ -63,7 +63,7 @@ const FlexBullet = ({ left = null, right = null }) => {
     li {
       padding-left: 1em;
       text-indent: -1.7em;
-      padding-bottom: 0.8em;
+      padding-bottom: 0.7em;
     }
 
     li:before {
@@ -86,7 +86,7 @@ export default class AnswerFactory {
     const Image = styled.div`
       color: black;
       background-color: white;
-      flex: 0.4;
+      flex: 0.3;
       display: ${image ? 'visible' : 'none'};
     `
     const Math = styled.div`
