@@ -1,4 +1,4 @@
-import React, { useContext } from 'react'
+import React from 'react'
 import QuickReplyButton from './QuickReplyButton'
 
 import styled from 'styled-components'
@@ -9,8 +9,8 @@ const QuickReplyButtonContainer = styled.div`
 `
 
 function makeQuickReplyButton (data) {
-  return data.map(({ title, cmd }, index) => {
-    return <QuickReplyButton key={index} title={title} cmd={cmd} />
+  return data.map(({ title, onClick, disabled }, index) => {
+    return <QuickReplyButton key={index} title={title} onClick={onClick} disabled={disabled} />
   })
 }
 
