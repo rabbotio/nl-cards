@@ -24,9 +24,13 @@ function SlideFlashCard ({ datas, index = 0 }) {
       title: `Next`,
       onClick: () => {
         setDisabled(true)
-        next()
-        setCount(count + 1)
-        setDisabled(false)
+        setReveal(false)
+
+        new Promise(resolve => setTimeout(resolve, 1000)).then(() => {
+          next()
+          setCount(count + 1)
+          setDisabled(false)
+        })
       },
       disabled
     }
