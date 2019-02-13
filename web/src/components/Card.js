@@ -8,6 +8,8 @@ const StyledCard = styled.div`
   perspective: 1000px; /* Remove this if you don't want the 3D effect */
 
   .flip-card-inner {
+    transition-timing-function: ease-out;
+    transition: 0.4s;
     transform: ${props => (props.revealed ? `rotateX(180deg)` : `rotateX(0deg)`)};
   }
 `

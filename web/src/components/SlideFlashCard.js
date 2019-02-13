@@ -26,7 +26,7 @@ function SlideFlashCard ({ datas, index = 0 }) {
         setDisabled(true)
         setReveal(false)
 
-        new Promise(resolve => setTimeout(resolve, 1000)).then(() => {
+        new Promise(resolve => setTimeout(resolve, 500)).then(() => {
           next()
           setCount(count + 1)
           setDisabled(false)
