@@ -5,6 +5,7 @@ import { FlashCardContext } from './FlashCardContext'
 
 function SlideFlashCard ({ datas, index = 0 }) {
   const [count, setCount] = useState(index)
+  const [reveal, setReveal] = useState(false)
   const [disabled, setDisabled] = useState(false)
   const { next, retry } = useContext(FlashCardContext)
 
@@ -12,13 +13,16 @@ function SlideFlashCard ({ datas, index = 0 }) {
     {
       title: 'What?',
       onClick: () => {
+        setDisabled(true)
         retry()
+        setReveal(!reveal)
+        setDisabled(false)
       },
       disabled
     },
     {
       title: `Next`,
-      onClick: button => {
+      onClick: () => {
         setDisabled(true)
         next()
         setCount(count + 1)
@@ -30,7 +34,7 @@ function SlideFlashCard ({ datas, index = 0 }) {
 
   return (
     <div>
-      <FlashCard data={datas[count]} />
+      <FlashCard data={datas[count]} revealed={reveal} />
       <QuickReplyButtonList data={quickReplyButtons} />
     </div>
   )

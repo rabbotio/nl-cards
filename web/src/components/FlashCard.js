@@ -10,14 +10,14 @@ const CardContainer = styled.div`
   flex-wrap: wrap;
 `
 
-function makeCard ({ front, back }) {
+function makeCard ({ front, back }, revealed) {
   const _front = QuestionFactory.build(front)
   const _back = AnswerFactory.build(back)
-  return <Card front={_front} back={_back} />
+  return <Card front={_front} back={_back} revealed={revealed} />
 }
 
-function FlashCard ({ data }) {
-  return <CardContainer>{makeCard(data)}</CardContainer>
+function FlashCard ({ data, revealed }) {
+  return <CardContainer>{makeCard(data, revealed)}</CardContainer>
 }
 
 export default FlashCard

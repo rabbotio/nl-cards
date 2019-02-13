@@ -7,14 +7,14 @@ const StyledCard = styled.div`
   height: 320px;
   perspective: 1000px; /* Remove this if you don't want the 3D effect */
 
-  :hover .flip-card-inner {
-    transform: rotateY(180deg);
+  .flip-card-inner {
+    transform: ${props => (props.revealed ? `rotateX(-180deg)` : `rotateX(0deg)`)};
   }
 `
 
-function Card ({ front, back }) {
+function Card ({ front, back, revealed }) {
   return (
-    <StyledCard>
+    <StyledCard revealed={revealed}>
       <div className='flip-card-inner'>
         <div className='flip-card-front'>{front}</div>
         <div className='flip-card-back'>{back}</div>
