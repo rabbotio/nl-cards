@@ -3,6 +3,22 @@ import FlashCard from './FlashCard'
 import QuickReplyButtonList from './QuickReplyButtonList'
 import { FlashCardContext } from './FlashCardContext'
 
+import styled from 'styled-components'
+
+const FlashCardList = styled.div`
+  display: flex;
+  flex-direction: row;
+  height: 320px;
+  width: 512px;
+  overflow: scroll;
+  align-content: center;
+  padding: 8px;
+
+  div {
+    margin-right: 4px;
+  }
+`
+
 function SlideFlashCard ({ datas, index = 0 }) {
   const [count, setCount] = useState(index)
   const [reveal, setReveal] = useState(false)
@@ -38,7 +54,11 @@ function SlideFlashCard ({ datas, index = 0 }) {
 
   return (
     <div>
-      <FlashCard data={datas[count]} revealed={reveal} />
+      <FlashCardList>
+        <FlashCard data={datas[count]} revealed={reveal} />
+        <FlashCard data={datas[count + 1]} revealed={reveal} />
+        <FlashCard data={datas[count + 2]} revealed={reveal} />
+      </FlashCardList>
       <QuickReplyButtonList data={quickReplyButtons} />
     </div>
   )
