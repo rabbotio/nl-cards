@@ -15,6 +15,7 @@ function makeQuickReplyButton (data) {
 }
 
 function QuickReplyButtonList ({ data }) {
+  if (!data) return null
   return <QuickReplyButtonContainer>{makeQuickReplyButton(data)}</QuickReplyButtonContainer>
 }
 
