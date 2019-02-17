@@ -18,7 +18,7 @@ const json = {
     name: 'kat',
     img: './img/kat.png',
     msgs: [`We only have <b>ML</b> for <b>MVP</b>`, `Wanna try?`],
-    replies: [{ title: 'Yes!', nextId: '1' }, { title: 'No...', nextId: '2' }]
+    replies: [{ title: '✓ Yes!', nextId: '1' }, { title: '✗ No...', nextId: '2' }]
   },
   '1': {
     uid: '123',
