@@ -10,18 +10,6 @@ const Containerz = styled.div`
     flex-flow: row;
   }
 `
-/*
-const Dialogz = styled.div`
-   {
-    right: -3em;
-    left: auto;
-    border-right: none;
-    border-left: 1.5em solid grey;
-    border-bottom-left-radius: 50%;
-    clip: rect(1em, 2em, 2em, 0);
-  }
-`
-*/
 
 const Chatz = getChatStyle('#3498db', '#ecf0f1')
 
