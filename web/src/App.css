@@ -1,11 +1,3 @@
-html {
-  height: 100%;
-}
-body {
-  min-height: 100%;
-  display: flex;
-}
-
 #root {
   width: 100%;
   min-height: 100%;
