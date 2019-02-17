@@ -6,10 +6,12 @@ const buildMessage = msgs => msgs.map((msg, index) => <p key={index}>{ReactHtmlP
 
 export default ({ id, uid, msgs, img, replies }) => {
   return uid ? (
-    <dd className='to'>
-      <img alt='me' className='me' src={img} />
-      {buildMessage(msgs)}
-    </dd>
+    <div>
+      <dd className='to'>
+        <img alt='me' className='me' src={img} />
+        {buildMessage(msgs)}
+      </dd>
+    </div>
   ) : (
     <div>
       <dd className='from'>

@@ -117,7 +117,6 @@ function getChatStyle (myBG, yourBG) {
       margin-right: -32px;
       margin-left: 8px;
       border-radius: 100%;
-      transform: scaleX(-1);
       bottom: 2px;
       display: block;
     }
@@ -128,7 +127,6 @@ function getChatStyle (myBG, yourBG) {
       height: 32px;
       position: absolute;
       margin-left: -40px;
-      transform: scaleX(-1);
       bottom: 2px;
       float: left;
       display: block;

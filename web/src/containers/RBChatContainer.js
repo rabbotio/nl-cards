@@ -23,13 +23,13 @@ const json = {
   '1': {
     uid: '123',
     name: 'you',
-    img: './img/foo.png',
+    img: './img/duck.png',
     msgs: [`Yes!`]
   },
   '2': {
     uid: '123',
     name: 'you',
-    img: './img/foo.png',
+    img: './img/duck.png',
     msgs: [`No...`]
   }
 }
