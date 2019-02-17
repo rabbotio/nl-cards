@@ -1,22 +1,13 @@
-function injectButtonEvent (json, chatData, { next, setChatDatas }) {
-  const replies = chatData.replies
-  if (replies) {
+function injectButtonEvent (replies, { onClick }) {
+  if (replies && Array.isArray(replies)) {
     replies.map(
       button =>
         (button.onClick = () => {
-          // Init
-          const pastText = chatData
-          const nextId = button.nextId
-          const nextText = json[nextId]
-
-          // Next
-          next(nextId)
-
           // Remove buttons
-          delete pastText.replies
+          replies.length = 0
 
-          // Present
-          setChatDatas([pastText, nextText])
+          // Callback
+          onClick(button.goto)
         })
     )
   }
