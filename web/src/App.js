@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import './App.css'
 import styled from 'styled-components'
-
+// import SlideFlashCard from './components/SlideFlashCard'
 // import datas from './datas/ml/terms.json'
 // import SlideFlashCard from './components/SlideFlashCard'
 // import { Iphonez } from './ui/Iphonez'
