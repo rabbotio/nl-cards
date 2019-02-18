@@ -25,11 +25,9 @@ for (let key in all) {
 
 function RBChatContainer () {
   const [chatId, setChatId] = useState('0')
-  console.log('RBChatContainer:' + chatId)
   const [chatDatas, setChatDatas] = useState([json[chatId]])
 
   const onClick = nextId => {
-    console.log('onClick:' + nextId)
     const nextChatDatas = chatDatas.concat(json[nextId])
     setChatId(nextId)
     setChatDatas(nextChatDatas)
@@ -44,7 +42,6 @@ function RBChatContainer () {
     () => {
       const cmds = chatDatas[chatDatas.length - 1].cmds
       if (cmds) {
-        console.log('useEffect:' + cmds)
         const cmd = cmds[0]
         const action = Object.keys(cmd)[0]
         const param = cmd[action]
