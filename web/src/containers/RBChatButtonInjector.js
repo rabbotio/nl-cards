@@ -1,15 +1,14 @@
-import React from 'react'
-
 function injectButtonEvent (replies, { onClick }) {
   // Guard
-  if (!replies || !Array.isArray(replies)) return
+  if (!replies || replies.disabled) return
 
   // Inject
   replies.map(
     element =>
       (element.onClick = event => {
         // Remove buttons
-        replies.length = 0
+        // replies.length = 0
+        replies.disabled = true
 
         // Callback
         onClick(event, element.goto)
@@ -19,7 +18,7 @@ function injectButtonEvent (replies, { onClick }) {
 
 function injectSubmitEvent (inputs, { onSubmit }) {
   // Guard
-  if (!inputs || !Array.isArray(inputs)) return
+  if (!inputs || inputs.disabled) return
 
   // Inject
   inputs.map(
@@ -29,7 +28,8 @@ function injectSubmitEvent (inputs, { onSubmit }) {
         event.preventDefault()
 
         // Remove inputs
-        inputs.length = 0
+        // inputs.length = 0
+        inputs.disabled = true
 
         // Callback
         onSubmit(event, element.goto)

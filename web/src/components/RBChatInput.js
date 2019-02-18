@@ -2,11 +2,11 @@ import React from 'react'
 import QuickReplyButtonList from '../components/QuickReplyButtonList'
 
 function RBChatInput ({ replies, inputs }) {
-  if (replies && replies[0]) {
+  if (replies && replies[0] && !replies.disabled) {
     return <QuickReplyButtonList data={replies} />
   }
 
-  if (inputs && inputs[0]) {
+  if (inputs && inputs[0] && !inputs.disabled) {
     // TODO : support multipled inputs
     const input = inputs[0]
     const onSubmit = input.onSubmit
@@ -18,6 +18,9 @@ function RBChatInput ({ replies, inputs }) {
             <input type='submit' />
           </form>
         )
+      default:
+        console.log('N/A')
+        break
     }
   }
 

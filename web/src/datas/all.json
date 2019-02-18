@@ -30,8 +30,8 @@
     "1.1.1": {
         "uid": "0",
         "msgs": [
-            "What is the difference between probability and likelihood?",
-            "Know answer?"
+            "What is the difference between <b>probability</b> and <b>likelihood</b>?",
+            "Know the answer?"
         ],
         "replies": [
             {
@@ -76,12 +76,13 @@
     "2.1.1": {
         "uid": "0",
         "msgs": [
-            "That's it!",
-            "Your scored 100%"
+            "You scored 100% Nice!",
+            "BTW, To keep your memory permanently we will need your email"
         ],
-        "cmds": [
+        "inputs": [
             {
-                "goto": "3"
+                "type": "email",
+                "goto": "3.1"
             }
         ]
     },
@@ -106,8 +107,7 @@
     "3": {
         "uid": "0",
         "msgs": [
-            "To keep your memory permanently",
-            "Plz gimme your email"
+            "So, What's your email address plz?"
         ],
         "inputs": [
             {
@@ -158,6 +158,11 @@
         "uid": "0",
         "msgs": [
             "Awww..."
+        ],
+        "cmds": [
+            {
+                "goto": "3"
+            }
         ]
     }
 }

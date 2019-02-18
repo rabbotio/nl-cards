@@ -1,4 +1,4 @@
-import React, { useState, useContext, useEffect } from 'react'
+import React, { useState, useEffect } from 'react'
 import Msgz from '../ui/Msgz'
 import styled from 'styled-components'
 import { injectButtonEvent, injectSubmitEvent } from './RBChatButtonInjector'
@@ -24,7 +24,14 @@ for (let key in all) {
 }
 
 const fill = (msgs, target, value) => msgs.map(element => element.replace(new RegExp(target, 'g'), value))
+// eslint-disable-next-line
 const fillEmail = (msgs, value) => fill(msgs, '\\${email}', value)
+
+const reset = chatData => {
+  chatData.replies && console.log(chatData.replies.disabled)
+  chatData.replies && delete chatData.replies.disabled
+  chatData.inputs && delete chatData.inputs.disabled
+}
 
 function RBChatContainer () {
   const [chatId, setChatId] = useState('0')
@@ -32,7 +39,12 @@ function RBChatContainer () {
   const [email, setEmail] = useState('')
 
   const goto = nextId => {
-    const nextChatDatas = chatDatas.concat(json[nextId])
+    const chatData = json[nextId]
+
+    // Reset disabled
+    reset(chatData)
+
+    const nextChatDatas = chatDatas.concat(chatData)
     setChatId(nextId)
     setChatDatas(nextChatDatas)
   }
@@ -62,9 +74,17 @@ function RBChatContainer () {
         switch (action) {
           case 'goto':
             const nextId = param
-            const nextChatDatas = chatDatas.concat(json[nextId])
+            const chatData = json[nextId]
+            const nextChatDatas = chatDatas.concat(chatData)
+
+            // Reset disabled
+            reset(chatData)
+
             setChatId(nextId)
             setChatDatas(nextChatDatas)
+            break
+          default:
+            console.log('N/A')
             break
         }
       }
