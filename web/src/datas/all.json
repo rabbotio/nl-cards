@@ -8,44 +8,26 @@
         "replies": [
             {
                 "title": "✓ Yes!",
-                "goto": "3"
+                "goto": "1.1"
             },
             {
                 "title": "✗ No...",
-                "goto": "1"
+                "goto": "1.6"
             }
         ]
     },
-    "1": {
-        "uid": "1",
-        "msgs": [
-            "No..."
-        ],
-        "cmds": [
-            {
-                "goto": "2"
-            }
-        ]
-    },
-    "2": {
-        "uid": "0",
-        "msgs": [
-            "Awww...",
-            "Maybe later then"
-        ]
-    },
-    "3": {
+    "1.1": {
         "uid": "1",
         "msgs": [
             "Yes!"
         ],
         "cmds": [
             {
-                "goto": "4"
+                "goto": "1.1.1"
             }
         ]
     },
-    "4": {
+    "1.1.1": {
         "uid": "0",
         "msgs": [
             "What is the difference between probability and likelihood?",
@@ -54,68 +36,98 @@
         "replies": [
             {
                 "title": "✓ Yes!",
-                "goto": "7"
+                "goto": "2.1"
             },
             {
                 "title": "✗ No...",
-                "goto": "5"
+                "goto": "2.6"
             }
         ]
     },
-    "5": {
+    "1.6": {
         "uid": "1",
         "msgs": [
             "No..."
         ],
         "cmds": [
             {
-                "goto": "6"
+                "goto": "1.6.1"
             }
         ]
     },
-    "6": {
+    "1.6.1": {
         "uid": "0",
         "msgs": [
             "Awww...",
             "Maybe later then"
         ]
     },
-    "7": {
+    "2.1": {
         "uid": "1",
         "msgs": [
             "Yes!"
         ],
         "cmds": [
             {
-                "goto": "8"
+                "goto": "2.1.1"
             }
         ]
     },
-    "8": {
+    "2.1.1": {
         "uid": "0",
         "msgs": [
-            "That's it! I can keep your memory permanently",
-            "Just gimme your email"
+            "That's it!",
+            "Your scored 100%"
+        ],
+        "cmds": [
+            {
+                "goto": "3"
+            }
+        ]
+    },
+    "2.6": {
+        "uid": "1",
+        "msgs": [
+            "No..."
+        ],
+        "cmds": [
+            {
+                "goto": "2.6.1"
+            }
+        ]
+    },
+    "2.6.1": {
+        "uid": "0",
+        "msgs": [
+            "Well...",
+            "Maybe later then"
+        ]
+    },
+    "3": {
+        "uid": "0",
+        "msgs": [
+            "To keep your memory permanently",
+            "Plz gimme your email"
         ],
         "inputs": [
             {
                 "type": "email",
-                "goto": "9"
+                "goto": "3.1"
             }
         ]
     },
-    "9": {
+    "3.1": {
         "uid": "1",
         "msgs": [
             "${email}"
         ],
         "cmds": [
             {
-                "goto": "10"
+                "goto": "3.1.1"
             }
         ]
     },
-    "10": {
+    "3.1.1": {
         "uid": "0",
         "msgs": [
             "Send to <b>${email}</b> address?"
@@ -123,12 +135,29 @@
         "replies": [
             {
                 "title": "✓ Yes!",
-                "goto": "13"
+                "goto": "3.1.2"
             },
             {
                 "title": "✗ No...",
-                "goto": "11"
+                "goto": "3.6"
             }
+        ]
+    },
+    "3.6": {
+        "uid": "1",
+        "msgs": [
+            "No..."
+        ],
+        "cmds": [
+            {
+                "goto": "3.6.1"
+            }
+        ]
+    },
+    "3.6.1": {
+        "uid": "0",
+        "msgs": [
+            "Awww..."
         ]
     }
 }
