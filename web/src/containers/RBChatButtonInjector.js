@@ -6,13 +6,13 @@ function injectButtonEvent (replies, { onClick }) {
 
   // Inject
   replies.map(
-    button =>
-      (button.onClick = () => {
+    element =>
+      (element.onClick = event => {
         // Remove buttons
         replies.length = 0
 
         // Callback
-        onClick(button.goto)
+        onClick(event, element.goto)
       })
   )
 }
@@ -23,8 +23,8 @@ function injectSubmitEvent (inputs, { onSubmit }) {
 
   // Inject
   inputs.map(
-    button =>
-      (button.onSubmit = event => {
+    element =>
+      (element.onSubmit = event => {
         // No refresh
         event.preventDefault()
 
@@ -32,7 +32,7 @@ function injectSubmitEvent (inputs, { onSubmit }) {
         inputs.length = 0
 
         // Callback
-        onSubmit(event)
+        onSubmit(event, element.goto)
       })
   )
 }

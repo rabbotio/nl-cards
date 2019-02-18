@@ -54,7 +54,7 @@
         "replies": [
             {
                 "title": "✓ Yes!",
-                "goto": "6"
+                "goto": "7"
             },
             {
                 "title": "✗ No...",
@@ -62,18 +62,36 @@
             }
         ]
     },
+    "5": {
+        "uid": "1",
+        "msgs": [
+            "No..."
+        ],
+        "cmds": [
+            {
+                "goto": "6"
+            }
+        ]
+    },
     "6": {
+        "uid": "0",
+        "msgs": [
+            "Awww...",
+            "Maybe later then"
+        ]
+    },
+    "7": {
         "uid": "1",
         "msgs": [
             "Yes!"
         ],
         "cmds": [
             {
-                "goto": "7"
+                "goto": "8"
             }
         ]
     },
-    "7": {
+    "8": {
         "uid": "0",
         "msgs": [
             "That's it! I can keep your memory permanently",
@@ -82,14 +100,35 @@
         "inputs": [
             {
                 "type": "email",
-                "goto": "8"
+                "goto": "9"
             }
         ]
     },
-    "8": {
+    "9": {
+        "uid": "1",
+        "msgs": [
+            "${email}"
+        ],
+        "cmds": [
+            {
+                "goto": "10"
+            }
+        ]
+    },
+    "10": {
         "uid": "0",
         "msgs": [
-            "Thanks"
+            "Send to <b>${email}</b> address?"
+        ],
+        "replies": [
+            {
+                "title": "✓ Yes!",
+                "goto": "13"
+            },
+            {
+                "title": "✗ No...",
+                "goto": "11"
+            }
         ]
     }
 }

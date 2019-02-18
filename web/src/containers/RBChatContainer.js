@@ -23,19 +23,31 @@ for (let key in all) {
   json[key] = Object.assign({}, element, profile)
 }
 
+const fillEmail = (msgs, value) => msgs.map(element => element.replace(/\${email}/g, value))
+
 function RBChatContainer () {
   const [chatId, setChatId] = useState('0')
   const [chatDatas, setChatDatas] = useState([json[chatId]])
+  const [email, setEmail] = useState('')
 
-  const onClick = nextId => {
+  const goto = nextId => {
     const nextChatDatas = chatDatas.concat(json[nextId])
     setChatId(nextId)
     setChatDatas(nextChatDatas)
   }
+  const onClick = (event, nextId) => goto(nextId)
+  const onSubmit = (event, nextId) => {
+    const { value } = event.target.elements[0]
 
-  const onSubmit = event => {
-    console.log(event.target.elements[0].value)
-    // TODO : confirm email
+    // Confirm email
+    const chatData = json[nextId]
+    chatData.msgs = fillEmail(chatData.msgs, value)
+
+    // Set state
+    setEmail(value)
+
+    // Go!
+    goto(nextId)
   }
 
   useEffect(
@@ -62,6 +74,10 @@ function RBChatContainer () {
   // Add intercept
   const chatData = chatDatas[chatDatas.length - 1]
   if (chatData) {
+    // Replace with email
+    // TODO : Fix this overfitting!
+    chatData.msgs && email && (chatData.msgs = fillEmail(chatData.msgs, email))
+
     chatData.replies && injectButtonEvent(chatData.replies, { onClick })
     chatData.inputs && injectSubmitEvent(chatData.inputs, { onSubmit })
   }
