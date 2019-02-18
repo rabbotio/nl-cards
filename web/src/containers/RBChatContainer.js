@@ -23,7 +23,8 @@ for (let key in all) {
   json[key] = Object.assign({}, element, profile)
 }
 
-const fillEmail = (msgs, value) => msgs.map(element => element.replace(/\${email}/g, value))
+const fill = (msgs, target, value) => msgs.map(element => element.replace(new RegExp(target, 'g'), value))
+const fillEmail = (msgs, value) => fill(msgs, '\\${email}', value)
 
 function RBChatContainer () {
   const [chatId, setChatId] = useState('0')
