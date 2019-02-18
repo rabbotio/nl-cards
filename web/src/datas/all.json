@@ -1,0 +1,95 @@
+{
+    "0": {
+        "uid": "0",
+        "msgs": [
+            "For <b>MVP</b> we only have <b>ML</b>",
+            "Wanna try?"
+        ],
+        "replies": [
+            {
+                "title": "✓ Yes!",
+                "goto": "6"
+            },
+            {
+                "title": "✗ No...",
+                "goto": "1"
+            }
+        ]
+    },
+    "1": {
+        "uid": "1",
+        "msgs": [
+            "No..."
+        ],
+        "cmds": [
+            {
+                "goto": "2"
+            }
+        ]
+    },
+    "2": {
+        "uid": "0",
+        "msgs": [
+            "Awww...",
+            "Maybe later then"
+        ]
+    },
+    "3": {
+        "uid": "1",
+        "msgs": [
+            "Yes!"
+        ],
+        "cmds": [
+            {
+                "goto": "4"
+            }
+        ]
+    },
+    "4": {
+        "uid": "0",
+        "msgs": [
+            "What is the difference between probability and likelihood?",
+            "Know answer?"
+        ],
+        "replies": [
+            {
+                "title": "✓ Yes!",
+                "goto": "6"
+            },
+            {
+                "title": "✗ No...",
+                "goto": "5"
+            }
+        ]
+    },
+    "6": {
+        "uid": "1",
+        "msgs": [
+            "Yes!"
+        ],
+        "cmds": [
+            {
+                "goto": "7"
+            }
+        ]
+    },
+    "7": {
+        "uid": "0",
+        "msgs": [
+            "That's it! I can keep your memory permanently",
+            "Just gimme your email"
+        ],
+        "inputs": [
+            {
+                "type": "email",
+                "goto": "8"
+            }
+        ]
+    },
+    "8": {
+        "uid": "0",
+        "msgs": [
+            "Thanks"
+        ]
+    }
+}

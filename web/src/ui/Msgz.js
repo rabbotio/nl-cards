@@ -1,11 +1,11 @@
 import React from 'react'
 import ReactHtmlParser from 'react-html-parser'
-import QuickReplyButtonList from '../components/QuickReplyButtonList'
+import RBChatInput from '../components/RBChatInput'
 
 const buildMessage = msgs => msgs.map((msg, index) => <p key={index}>{ReactHtmlParser(msg)}</p>)
 
-export default ({ id, uid, msgs, img, replies }) => {
-  return uid ? (
+export default ({ id, uid, msgs, img, replies, inputs }) => {
+  return uid !== '0' ? (
     <div>
       <dd className='to'>
         <img alt='me' className='me' src={img} />
@@ -18,7 +18,7 @@ export default ({ id, uid, msgs, img, replies }) => {
         <img alt='you' className='you' src={img} />
         {buildMessage(msgs)}
       </dd>
-      <QuickReplyButtonList data={replies} />
+      <RBChatInput replies={replies} inputs={inputs} />
     </div>
   )
 }

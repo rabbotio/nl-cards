@@ -1,0 +1,10 @@
+{
+    "0": {
+        "name": "kat",
+        "img": "./img/kat.png"
+    },
+    "1": {
+        "name": "you",
+        "img": "./img/duck.png"
+    }
+}
