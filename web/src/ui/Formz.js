@@ -15,6 +15,7 @@ export const Formz = styled.form`
 
     :focus {
       outline: 0;
+      border-width: 1px;
     }
   }
   input[type='submit'] {
@@ -35,9 +36,9 @@ export const Formz = styled.form`
     transition: all 0.1s;
     box-shadow: 0px 3px 0px #7f8c8d;
     :active {
-      box-shadow: 0px 2px 0px #7f8c8d;
+      box-shadow: 0px -2px 0px;
       position: relative;
-      top: 4px;
+      top: 2px;
     }
     svg {
       display: inline-block;
