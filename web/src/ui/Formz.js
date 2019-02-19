@@ -5,6 +5,7 @@ export const Formz = styled.form`
   padding-top: 0.5em;
   float: right;
   input[type='email'] {
+    width: 200px;
     height: 22px;
     border-radius: 5px;
     border: solid 1px #bdc3c7;

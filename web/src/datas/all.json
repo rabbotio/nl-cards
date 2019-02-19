@@ -77,7 +77,7 @@
         "uid": "0",
         "msgs": [
             "You scored 100% nice!",
-            "BTW, To keep your memory permanent we will need your email"
+            "BTW, To keep your memory permanent we will need your <b>email</b>"
         ],
         "inputs": [
             {

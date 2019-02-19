@@ -17,7 +17,7 @@ function getChatStyle (myBG, yourBG) {
   return styled.div`
     display: flex;
     flex-direction: column;
-    width: 320px;
+    width: 400px;
     margin: 0 auto;
     font-weight: 200;
     font-size: 14px;
@@ -29,6 +29,7 @@ function getChatStyle (myBG, yourBG) {
     }
     dd {
       position: relative;
+      margin-left: 0px;
     }
     dt {
       margin-bottom: 1em;
@@ -105,7 +106,7 @@ function getChatStyle (myBG, yourBG) {
       width: 32px;
       height: 32px;
       position: absolute;
-      margin-left: -40px;
+      margin-left: -38px;
       bottom: 0px;
       float: left;
       display: block;

@@ -10,8 +10,10 @@ import { addController } from './RBChatController'
 const Containerz = styled.div`
    {
     flex-flow: row;
-    max-height: 320px;
+    max-height: 460px;
     overflow-y: auto;
+    width: 480px;
+    margin: auto;
   }
 `
 
