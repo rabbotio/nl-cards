@@ -10,6 +10,8 @@ import { addController } from './RBChatController'
 const Containerz = styled.div`
    {
     flex-flow: row;
+    max-height: 320px;
+    overflow-y: auto;
   }
 `
 
@@ -27,6 +29,11 @@ function RBChatContainer () {
   const [chatId, setChatId] = useState('0')
   const [chatDatas, setChatDatas] = useState([json[chatId]])
   const [email, setEmail] = useState('')
+
+  const chatRef = React.createRef()
+  const scrollToBottom = () => {
+    chatRef.current.scrollIntoView({ block: 'end', behavior: 'smooth' })
+  }
 
   const typing = async (nextId, delay = 1000) => {
     const { uid, name, img } = json[nextId]
@@ -47,6 +54,7 @@ function RBChatContainer () {
 
   useEffect(
     () => {
+      // Commands
       const cmds = chatDatas[chatDatas.length - 1].cmds
       cmds &&
         cmds.forEach(cmd => {
@@ -63,6 +71,9 @@ function RBChatContainer () {
               break
           }
         })
+
+      // Scroll to bottom
+      scrollToBottom()
     },
     [chatDatas]
   )
@@ -72,7 +83,7 @@ function RBChatContainer () {
 
   return (
     <Containerz>
-      <Chatz>
+      <Chatz ref={chatRef}>
         {chatDatas.map((item, index) => (
           <Msgz key={index} {...item} />
         ))}
