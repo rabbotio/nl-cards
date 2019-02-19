@@ -29,8 +29,7 @@ function RBChatContainer () {
   const [email, setEmail] = useState('')
 
   const goto = nextId => {
-    const chatData = Object.assign({}, json[nextId])
-    const nextChatDatas = chatDatas.concat(chatData)
+    const nextChatDatas = chatDatas.concat(json[nextId])
     setChatId(nextId)
     setChatDatas(nextChatDatas)
   }
