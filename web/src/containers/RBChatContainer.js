@@ -39,7 +39,6 @@ function RBChatContainer () {
   }
 
   const goto = nextId => {
-    console.log('nextId:' + nextId)
     const nextChatData = Object.assign({}, json[nextId])
     const nextChatDatas = chatDatas.concat(nextChatData)
     setChatId(nextId)
@@ -48,7 +47,6 @@ function RBChatContainer () {
 
   useEffect(
     () => {
-      console.log('useEffect:' + chatId)
       const cmds = chatDatas[chatDatas.length - 1].cmds
       cmds &&
         cmds.forEach(cmd => {
