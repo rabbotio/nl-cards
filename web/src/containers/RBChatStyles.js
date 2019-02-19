@@ -15,36 +15,35 @@ const Dialogz = styled.div`
 
 function getChatStyle (myBG, yourBG) {
   return styled.div`
-    .ios7 {
-      display: flex;
-      flex-direction: column;
-      width: 320px;
-      margin: 0 auto;
-      font-weight: 200;
-      font-size: 14px;
-      font-family: 'Helvetica Neue', 'Helvetica', Helvetica, Arial, sans-serif;
-      color: #000;
-    }
-    .ios7 strong {
+    display: flex;
+    flex-direction: column;
+    width: 320px;
+    margin: 0 auto;
+    font-weight: 200;
+    font-size: 14px;
+    font-family: 'Helvetica Neue', 'Helvetica', Helvetica, Arial, sans-serif;
+    color: #000;
+
+    strong {
       font-weight: 400;
     }
-    .ios7 dd {
+    dd {
       position: relative;
     }
-    .ios7 dt {
+    dt {
       margin-bottom: 1em;
       text-align: center;
       font-size: 0.6em;
       color: #999;
     }
-    .ios7 dd + dt {
+    dd + dt {
       margin-top: 1.5em;
     }
-    .ios7 dd + dd {
+    dd + dd {
       margin-top: 0.5em;
     }
 
-    .ios7 p {
+    p {
       width: fit-content;
       margin: 0;
       text-align: left;
@@ -54,7 +53,7 @@ function getChatStyle (myBG, yourBG) {
       line-height: 1.25;
       border-radius: 1em;
     }
-    .ios7 .to p {
+    .to p {
       text-align: left;
       float: right;
       margin-right: 0;
@@ -62,13 +61,13 @@ function getChatStyle (myBG, yourBG) {
       background: ${myBG};
       color: #fff;
     }
-    .ios7 p + p {
+    p + p {
       margin-top: 0.1em;
     }
-    .ios7 p:last-child {
+    p:last-child {
       position: relative;
     }
-    .ios7 p:last-child::before {
+    p:last-child::before {
       position: absolute;
       bottom: 0;
       left: -3em;
@@ -80,7 +79,7 @@ function getChatStyle (myBG, yourBG) {
       content: ' ';
       clip: rect(1em, 4em, 3em, 2em);
     }
-    .ios7 .to p:last-child::before {
+    .to p:last-child::before {
       right: -3em;
       left: auto;
       border-right: none;
@@ -88,7 +87,7 @@ function getChatStyle (myBG, yourBG) {
       border-bottom-left-radius: 50%;
       clip: rect(1em, 2em, 2em, 0);
     }
-    .ios7 .me {
+    .me {
       margin: 0;
       padding: 0;
       width: 32px;
@@ -100,7 +99,7 @@ function getChatStyle (myBG, yourBG) {
       bottom: 0px;
       display: block;
     }
-    .ios7 .you {
+    .you {
       margin: 0;
       padding: 0;
       width: 32px;

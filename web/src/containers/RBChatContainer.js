@@ -29,7 +29,8 @@ function RBChatContainer () {
   const [email, setEmail] = useState('')
 
   const goto = nextId => {
-    const nextChatDatas = chatDatas.concat(json[nextId])
+    const nextChatData = Object.assign({}, json[nextId])
+    const nextChatDatas = chatDatas.concat(nextChatData)
     setChatId(nextId)
     setChatDatas(nextChatDatas)
   }
@@ -62,11 +63,9 @@ function RBChatContainer () {
   return (
     <Containerz>
       <Chatz>
-        <dl className='ios7'>
-          {chatDatas.map((item, index) => (
-            <Msgz key={index} {...item} />
-          ))}
-        </dl>
+        {chatDatas.map((item, index) => (
+          <Msgz key={index} {...item} />
+        ))}
       </Chatz>
     </Containerz>
   )
