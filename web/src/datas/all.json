@@ -9,11 +9,11 @@
         ],
         "replies": [
             {
-                "title": "✓ Yes!",
+                "title": "✗ No...",
                 "goto": "1"
             },
             {
-                "title": "✗ No...",
+                "title": "✓ Yes!",
                 "goto": "1"
             }
         ]
@@ -26,12 +26,12 @@
         ],
         "replies": [
             {
-                "title": "✓ Yes!",
-                "goto": "1.1"
-            },
-            {
                 "title": "✗ No...",
                 "goto": "1.6"
+            },
+            {
+                "title": "✓ Yes!",
+                "goto": "1.1"
             }
         ]
     },
@@ -54,12 +54,12 @@
         ],
         "replies": [
             {
-                "title": "✓ Yes!",
-                "goto": "2.1"
-            },
-            {
                 "title": "✗ No...",
                 "goto": "2.6"
+            },
+            {
+                "title": "✓ Yes!",
+                "goto": "2.1"
             }
         ]
     },
@@ -153,12 +153,12 @@
         ],
         "replies": [
             {
-                "title": "✓ Yes!",
-                "goto": "3.1.2"
-            },
-            {
                 "title": "✗ No...",
                 "goto": "3.6"
+            },
+            {
+                "title": "✓ Yes!",
+                "goto": "3.1.2"
             }
         ]
     },

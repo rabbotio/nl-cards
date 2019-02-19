@@ -13,7 +13,7 @@ const Containerz = styled.div`
     max-height: 460px;
     overflow-y: auto;
     width: 480px;
-    margin: auto;
+    //margin: auto;
   }
 `
 

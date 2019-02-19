@@ -12,7 +12,7 @@ const Appz = styled.div`
    {
     text-align: center;
     display: flex;
-    width: 1125px;
+    max-width: 640px;
     flex-flow: column;
     justify-content: center;
   }
@@ -20,7 +20,11 @@ const Appz = styled.div`
 
 const Sectionz = styled.div`
    {
-    padding: 8px;
+    padding: 0px;
+    height: 100%;
+    display: flex;
+    flex-flow: column;
+    justify-content: ${props => props.align};
   }
 `
 
@@ -38,11 +42,11 @@ class App extends Component {
   render () {
     return (
       <Appz>
-        <Sectionz>
+        <Sectionz align='flex-end'>
           <RBChatContainer />
         </Sectionz>
         <Hrz />
-        <Sectionz>
+        <Sectionz align='flex-start'>
           <Footerz>made w/ ❤ rabbot.io</Footerz>
         </Sectionz>
       </Appz>
