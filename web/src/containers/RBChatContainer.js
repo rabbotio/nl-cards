@@ -28,6 +28,30 @@ function RBChatContainer () {
   const [chatDatas, setChatDatas] = useState([json[chatId]])
   const [email, setEmail] = useState('')
 
+  const typing = async (nextId, delay = 1000) => {
+    const { uid, name, img } = json[nextId]
+    const typingChatData = Object.assign(
+      {},
+      {
+        uid,
+        name,
+        img,
+        msgs: [
+          `<span id="wave">
+    <span class="dot"></span>
+    <span class="dot"></span>
+    <span class="dot"></span>
+</span>`
+        ]
+      }
+    )
+    const typingChatDatas = chatDatas.concat(typingChatData)
+    console.dir(typingChatDatas)
+    setChatDatas(typingChatDatas)
+
+    return new Promise(r => setTimeout(r, delay))
+  }
+
   const goto = nextId => {
     const nextChatData = Object.assign({}, json[nextId])
     const nextChatDatas = chatDatas.concat(nextChatData)
@@ -45,7 +69,11 @@ function RBChatContainer () {
 
           switch (action) {
             case 'goto':
-              goto(param)
+              const nextId = param
+              typing(nextId).then(() => goto(nextId))
+              // setTimeout(() => goto(nextId), 1000)
+              // new Promise(r => setTimeout(r, 1000)).then(goto(nextId))
+              // goto(nextId)
 
               break
             default:
