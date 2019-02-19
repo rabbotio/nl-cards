@@ -1,4 +1,12 @@
 ### TODO
-- [ ] Design front card : frame should be compatible with AR (for hint?)
-- [ ] Design back card  : should have QR for offline version
-- [ ] Add more card type : should support graph
+- [ ] Add batch of `FlashCard`
+- [ ] Add quick reply for `FlashCard`
+- [ ] Submit to email server
+- [ ] Check unique email
+
+### TOHAVE
+- [ ] Editor
+
+### TOCARD
+- [ ] Google Crash Course : https://developers.google.com/machine-learning/crash-course/
+- [ ] 10 Essential ML Interview Questions by Accenture : https://www.thelearningmachine.ai/accenture
