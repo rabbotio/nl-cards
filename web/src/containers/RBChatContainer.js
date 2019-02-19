@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import Msgz from '../ui/Msgz'
 import styled from 'styled-components'
-import { getChatStyle } from './RBChatStyles'
+import { getChatStyle, getTypingChatData } from './RBChatStyles'
 
 import all from '../datas/all.json'
 import profiles from '../datas/profiles.json'
@@ -30,29 +30,16 @@ function RBChatContainer () {
 
   const typing = async (nextId, delay = 1000) => {
     const { uid, name, img } = json[nextId]
-    const typingChatData = Object.assign(
-      {},
-      {
-        uid,
-        name,
-        img,
-        msgs: [
-          `<span id="wave">
-    <span class="dot"></span>
-    <span class="dot"></span>
-    <span class="dot"></span>
-</span>`
-        ]
-      }
-    )
+
+    const typingChatData = getTypingChatData({ uid, name, img })
     const typingChatDatas = chatDatas.concat(typingChatData)
-    console.dir(typingChatDatas)
     setChatDatas(typingChatDatas)
 
     return new Promise(r => setTimeout(r, delay))
   }
 
   const goto = nextId => {
+    console.log('nextId:' + nextId)
     const nextChatData = Object.assign({}, json[nextId])
     const nextChatDatas = chatDatas.concat(nextChatData)
     setChatId(nextId)
@@ -61,6 +48,7 @@ function RBChatContainer () {
 
   useEffect(
     () => {
+      console.log('useEffect:' + chatId)
       const cmds = chatDatas[chatDatas.length - 1].cmds
       cmds &&
         cmds.forEach(cmd => {
@@ -71,10 +59,6 @@ function RBChatContainer () {
             case 'goto':
               const nextId = param
               typing(nextId).then(() => goto(nextId))
-              // setTimeout(() => goto(nextId), 1000)
-              // new Promise(r => setTimeout(r, 1000)).then(goto(nextId))
-              // goto(nextId)
-
               break
             default:
               console.log('N/A')
@@ -82,7 +66,7 @@ function RBChatContainer () {
           }
         })
     },
-    [chatId]
+    [chatDatas]
   )
 
   // Add input events mostly

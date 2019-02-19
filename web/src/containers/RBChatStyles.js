@@ -113,4 +113,21 @@ function getChatStyle (myBG, yourBG) {
   `
 }
 
-export { getChatStyle }
+const getTypingChatData = ({ uid, name, img }) =>
+  Object.assign(
+    {},
+    {
+      uid,
+      name,
+      img,
+      msgs: [
+        `<span id="wave">
+<span class="dot"></span>
+<span class="dot"></span>
+<span class="dot"></span>
+</span>`
+      ]
+    }
+  )
+
+export { getChatStyle, getTypingChatData }
