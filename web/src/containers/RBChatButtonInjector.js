@@ -1,6 +1,6 @@
 function injectButtonEvent (replies, { onClick }) {
   // Guard
-  if (!replies || replies.disabled) return
+  if (!replies) return
 
   // Inject
   replies.map(
@@ -14,7 +14,7 @@ function injectButtonEvent (replies, { onClick }) {
 
 function injectSubmitEvent (inputs, { onSubmit }) {
   // Guard
-  if (!inputs || inputs.disabled) return
+  if (!inputs) return
 
   // Inject
   inputs.map(
