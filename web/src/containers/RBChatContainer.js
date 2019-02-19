@@ -27,27 +27,18 @@ const fill = (msgs, target, value) => msgs.map(element => element.replace(new Re
 // eslint-disable-next-line
 const fillEmail = (msgs, value) => fill(msgs, '\\${email}', value)
 
-const reset = chatData => {
-  chatData.replies && console.log(chatData.replies.disabled)
-  chatData.replies && delete chatData.replies.disabled
-  chatData.inputs && delete chatData.inputs.disabled
-}
-
 function RBChatContainer () {
   const [chatId, setChatId] = useState('0')
   const [chatDatas, setChatDatas] = useState([json[chatId]])
   const [email, setEmail] = useState('')
 
   const goto = nextId => {
-    const chatData = json[nextId]
-
-    // Reset disabled
-    reset(chatData)
-
+    const chatData = Object.assign({}, json[nextId])
     const nextChatDatas = chatDatas.concat(chatData)
     setChatId(nextId)
     setChatDatas(nextChatDatas)
   }
+
   const onClick = (event, nextId) => goto(nextId)
   const onSubmit = (event, nextId) => {
     const { value } = event.target.elements[0]
@@ -66,31 +57,27 @@ function RBChatContainer () {
   useEffect(
     () => {
       const cmds = chatDatas[chatDatas.length - 1].cmds
-      if (cmds) {
-        const cmd = cmds[0]
-        const action = Object.keys(cmd)[0]
-        const param = cmd[action]
+      cmds &&
+        cmds.forEach(cmd => {
+          const action = Object.keys(cmd)[0]
+          const param = cmd[action]
 
-        switch (action) {
-          case 'goto':
-            const nextId = param
-            const chatData = json[nextId]
-            const nextChatDatas = chatDatas.concat(chatData)
+          switch (action) {
+            case 'goto':
+              goto(param)
 
-            // Reset disabled
-            reset(chatData)
-
-            setChatId(nextId)
-            setChatDatas(nextChatDatas)
-            break
-          default:
-            console.log('N/A')
-            break
-        }
-      }
+              break
+            default:
+              console.log('N/A')
+              break
+          }
+        })
     },
     [chatId]
   )
+
+  // Set active only last one
+  chatDatas.map((item, index) => (item.active = index === chatDatas.length - 1))
 
   // Add intercept
   const chatData = chatDatas[chatDatas.length - 1]

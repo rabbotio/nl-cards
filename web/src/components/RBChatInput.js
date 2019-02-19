@@ -1,7 +1,9 @@
 import React from 'react'
 import QuickReplyButtonList from '../components/QuickReplyButtonList'
 
-function RBChatInput ({ replies, inputs }) {
+function RBChatInput ({ replies, inputs, active }) {
+  if (!active) return null
+
   if (replies && replies[0] && !replies.disabled) {
     return <QuickReplyButtonList data={replies} />
   }
