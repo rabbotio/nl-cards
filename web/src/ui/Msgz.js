@@ -3,14 +3,24 @@ import ReactHtmlParser from 'react-html-parser'
 import RBChatInput from '../components/RBChatInput'
 import styled from 'styled-components'
 
-const buildMessage = msgs => msgs.map((msg, index) => <p key={index}>{ReactHtmlParser(msg)}</p>)
+const Imagez = styled.img`
+   {
+    display: flex;
+    width: 320px;
+    height: auto;
+  }
+`
+
+const buildMessage = msgs => msgs && msgs.map((msg, index) => <p key={index}>{ReactHtmlParser(msg)}</p>)
+const buildImages = imgs => imgs && imgs.map((src, index) => <Imagez key={index} src={src} />)
+
 const Holderz = styled.div`
    {
     padding-top: 0.5em;
   }
 `
 
-export default ({ id, uid, msgs, img, replies, inputs, active }) => {
+export default ({ id, uid, msgs, imgs, img, replies, inputs, active }) => {
   return uid !== '0' ? (
     <Holderz>
       <dd className='to'>
@@ -22,6 +32,7 @@ export default ({ id, uid, msgs, img, replies, inputs, active }) => {
     <Holderz>
       <dd className='from'>
         <img alt='you' className='you' src={img} />
+        {buildImages(imgs)}
         {buildMessage(msgs)}
       </dd>
       <RBChatInput replies={replies} inputs={inputs} active={active} />

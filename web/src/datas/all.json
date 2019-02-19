@@ -1,4 +1,23 @@
 {
+    "0a": {
+        "uid": "0",
+        "imgs": [
+            "./ml/png/l2_loss.png"
+        ],
+        "msgs": [
+            "Remember this?"
+        ],
+        "replies": [
+            {
+                "title": "✓ Yes!",
+                "goto": "1"
+            },
+            {
+                "title": "✗ No...",
+                "goto": "1"
+            }
+        ]
+    },
     "0": {
         "uid": "0",
         "msgs": [

@@ -1,4 +1,5 @@
 ### TODO
+- [ ] Add img type
 - [ ] Add batch of `FlashCard`
 - [ ] Add quick reply for `FlashCard`
 - [ ] Submit to email server
