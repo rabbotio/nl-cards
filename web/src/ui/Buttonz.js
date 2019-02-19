@@ -2,6 +2,7 @@
 import styled from 'styled-components'
 
 export const Buttonz = styled.button`
+  font-weight: bold;
   cursor: pointer;
   position: relative;
   width: auto;
@@ -10,7 +11,7 @@ export const Buttonz = styled.button`
   text-decoration: none;
   border-radius: 5px;
   border: solid 1px #bdc3c7;
-  background: #95a5a6;
+  background: #34495e;
   text-align: center;
   margin: 8px;
   outline: none;

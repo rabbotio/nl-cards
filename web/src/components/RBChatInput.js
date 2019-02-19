@@ -1,5 +1,6 @@
 import React from 'react'
 import QuickReplyButtonList from '../components/QuickReplyButtonList'
+import { Formz } from '../ui/Formz'
 
 function RBChatInput ({ replies, inputs, active }) {
   if (!active) return null
@@ -15,10 +16,10 @@ function RBChatInput ({ replies, inputs, active }) {
     switch (input.type) {
       case 'email':
         return (
-          <form onSubmit={onSubmit}>
+          <Formz onSubmit={onSubmit}>
             <input type='email' defaultValue='x@x.com' />
             <input type='submit' />
-          </form>
+          </Formz>
         )
       default:
         console.log('N/A')
