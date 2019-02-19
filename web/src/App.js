@@ -24,6 +24,12 @@ const Sectionz = styled.div`
   }
 `
 
+const Hrz = styled.hr`
+   {
+    width: 480px;
+    border-width: 0.5px;
+  }
+`
 const Footerz = styled.small`
   color: grey;
 `
@@ -35,6 +41,7 @@ class App extends Component {
         <Sectionz>
           <RBChatContainer />
         </Sectionz>
+        <Hrz />
         <Sectionz>
           <Footerz>made w/ ❤ rabbot.io</Footerz>
         </Sectionz>
