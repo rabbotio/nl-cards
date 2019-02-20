@@ -13,7 +13,7 @@ const Containerz = styled.div`
     max-height: 460px;
     overflow-y: auto;
     width: 480px;
-    //margin: auto;
+    overflow-x: hidden;
   }
 `
 
@@ -34,7 +34,9 @@ function RBChatContainer () {
 
   const chatRef = React.createRef()
   const scrollToBottom = () => {
-    chatRef.current.scrollIntoView({ block: 'end', behavior: 'smooth' })
+    // Delay a bit...bug?
+    const _f = chatRef.current
+    setTimeout(() => _f.scrollIntoView({ block: 'end', behavior: 'smooth' }), 0)
   }
 
   const typing = async (nextId, delay = 1000) => {

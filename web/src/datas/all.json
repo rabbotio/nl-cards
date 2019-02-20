@@ -48,14 +48,16 @@
     },
     "1.1.1": {
         "uid": "0",
+        "imgs": [
+            "./ml/png/l2_loss.png"
+        ],
         "msgs": [
-            "What is the difference between <b>probability</b> and <b>likelihood</b>?",
-            "Know the answer?"
+            "Remember this?"
         ],
         "replies": [
             {
                 "title": "✗ No...",
-                "goto": "2.6"
+                "goto": "1.1.1"
             },
             {
                 "title": "✓ Yes!",

@@ -53,6 +53,7 @@ function getChatStyle (myBG, yourBG) {
       background: ${yourBG};
       line-height: 1.25;
       border-radius: 1em;
+      margin-left: 0.5em;
     }
     .to p {
       text-align: left;
@@ -106,7 +107,7 @@ function getChatStyle (myBG, yourBG) {
       width: 32px;
       height: 32px;
       position: absolute;
-      margin-left: -38px;
+      margin-left: -32px;
       bottom: 0px;
       float: left;
       display: block;
