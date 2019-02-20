@@ -10,13 +10,13 @@ export const Formz = styled.form`
     border-radius: 5px;
     border: solid 1px #bdc3c7;
     box-shadow: 0px 3px 0px #7f8c8d;
-    border-width: 0 0 1px;
+    border-width: 1px;
     padding-left: 0.5em;
     padding-right: 0.5em;
 
     :focus {
       outline: 0;
-      border-width: 1px;
+      border: solid 1px #ffffff;
     }
   }
   input[type='submit'] {
