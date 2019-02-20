@@ -14,6 +14,14 @@ const Containerz = styled.div`
     overflow-y: auto;
     width: 480px;
     overflow-x: hidden;
+    scrollbar-width: none; /* Firefox */
+    -ms-overflow-style: none; /* IE 10+ */
+
+    ::-webkit-scrollbar {
+      /* WebKit */
+      width: 0;
+      height: 0;
+    }
   }
 `
 
@@ -53,7 +61,10 @@ function RBChatContainer () {
     const nextChatData = Object.assign({}, json[nextId])
     const nextChatDatas = chatDatas.concat(nextChatData)
     setChatId(nextId)
-    setChatDatas(nextChatDatas)
+
+    // Capped to 4
+    const _nextChatDatas = nextChatDatas.slice(nextChatDatas.length - 10, nextChatDatas.length)
+    setChatDatas(_nextChatDatas)
   }
 
   useEffect(
