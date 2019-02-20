@@ -17,7 +17,7 @@ function RBChatInput ({ replies, inputs, active }) {
       case 'email':
         return (
           <Formz onSubmit={onSubmit}>
-            <input type='email' defaultValue='x@x.com' />
+            <input type='email' defaultValue='x@x.com' autoFocus />
             <input type='submit' />
           </Formz>
         )
