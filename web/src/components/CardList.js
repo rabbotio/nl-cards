@@ -10,7 +10,14 @@ const CardContainer = styled.div`
   flex-wrap: wrap;
 `
 
-function makeCard (datas) {
+function makeCard (datas, cid) {
+  if (cid) {
+    const { front, back } = datas[cid]
+    const _front = QuestionFactory.build(front)
+    const _back = AnswerFactory.build(back)
+    return <Card front={_front} back={_back} />
+  }
+
   return datas.map(({ front, back }, index) => {
     const _front = QuestionFactory.build(front)
     const _back = AnswerFactory.build(back)
@@ -19,8 +26,8 @@ function makeCard (datas) {
   })
 }
 
-function CardList ({ datas }) {
-  return <CardContainer>{makeCard(datas)}</CardContainer>
+function CardList ({ datas, cid }) {
+  return <CardContainer>{makeCard(datas, cid)}</CardContainer>
 }
 
 export default CardList
