@@ -14,7 +14,7 @@ const StyledCard = styled.div`
   }
 `
 
-function Card ({ front, back, revealed }) {
+function Card ({ front, back, revealed = true }) {
   return (
     <StyledCard revealed={revealed}>
       <div className='flip-card-inner'>
