@@ -2,7 +2,7 @@ import { injectButtonEvent, injectSubmitEvent } from './RBChatButtonInjector'
 
 const fill = (msgs, target, value) => msgs.map(element => element.replace(new RegExp(target, 'g'), value))
 // eslint-disable-next-line
-const fillEmail = (msgs, value) => fill(msgs, '\\${email}', value)
+const fillEmail = (msgs, value) => fill(msgs, '\\{{email}}', value)
 
 function addController ({ setEmail, json, goto, email, chatDatas }) {
   const onClick = (event, nextId) => goto(nextId)

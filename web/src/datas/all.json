@@ -140,7 +140,7 @@
     "3.1": {
         "uid": "1",
         "msgs": [
-            "${email}"
+            "{{email}}"
         ],
         "cmds": [
             {
@@ -151,7 +151,7 @@
     "3.1.1": {
         "uid": "0",
         "msgs": [
-            "Send to <b>${email}</b> address?"
+            "Send to <b>{{email}}</b> address?"
         ],
         "replies": [
             {
