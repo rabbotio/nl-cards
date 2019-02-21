@@ -16,8 +16,8 @@ const buildImages = imgs => imgs && imgs.map((src, index) => <Imagez key={index}
 
 const Holderz = styled.div`
    {
-    padding-top: 1em;
-    padding-bottom: 1em;
+    padding-top: 0.5em;
+    padding-bottom: 0.5em;
   }
 `
 
