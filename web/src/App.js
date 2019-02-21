@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import { Route, Switch } from 'react-router-dom'
 
 import Home from './Home'
-import Editor from './Editor'
+import View from './View'
 
 import './App.css'
 
@@ -22,7 +22,7 @@ class App extends Component {
       <Allz>
         <Switch>
           <Route exact path='/' component={Home} />
-          <Route path='/editor/:cid' component={Editor} />
+          <Route path='/view/:cid' component={View} />
         </Switch>
       </Allz>
     )

@@ -5,7 +5,11 @@ const StyledCard = styled.div`
   background-color: transparent;
   width: 480px;
   height: 320px;
-  perspective: 1000px; /* Remove this if you don't want the 3D effect */
+
+  /* For render */
+  position: absolute;
+  top: 0;
+  left: 0;
 
   .flip-card-inner {
     transition-timing-function: ease-out;

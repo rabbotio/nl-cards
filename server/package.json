@@ -4,7 +4,9 @@
   "description": "",
   "main": "main.js",
   "dependencies": {
-    "mathjax-node": "^2.1.1"
+    "mathjax-node": "^2.1.1",
+    "puppeteer": "^1.12.2",
+    "puppeteer-core": "^1.12.2"
   },
   "devDependencies": {},
   "scripts": {
