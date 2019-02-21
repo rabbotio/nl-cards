@@ -2,7 +2,7 @@
     "0a": {
         "uid": "0",
         "imgs": [
-            "./ml/png/l2_loss.png"
+            "/ml/png/l2_loss.png"
         ],
         "msgs": [
             "Remember this?"
@@ -49,7 +49,7 @@
     "1.1.1": {
         "uid": "0",
         "imgs": [
-            "./ml/png/l2_loss.png"
+            "/ml/png/l2_loss.png"
         ],
         "msgs": [
             "Remember this?"

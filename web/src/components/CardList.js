@@ -15,12 +15,7 @@ function makeCard (datas) {
     const _front = QuestionFactory.build(front)
     const _back = AnswerFactory.build(back)
 
-    return (
-      <div>
-        <Card key={index} front={_front} back={_back} />
-        <br />
-      </div>
-    )
+    return <Card key={index} front={_front} back={_back} />
   })
 }
 

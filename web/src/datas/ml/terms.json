@@ -102,7 +102,7 @@
     {
         "front": {
             "title": "Linear Regression",
-            "image": "./ml/img/supervised.svg"
+            "image": "/ml/img/supervised.svg"
         },
         "back": {
             "desc": "A type of regression model that outputs a continuous value from a linear combination of input features.",
@@ -140,7 +140,7 @@
         },
         "back": {
             "desc": "<b>Loss</b> is the penalty for a bad prediction. That is, <b>loss</b> is a number indicating how bad the model's prediction was on a single example. ",
-            "image": "./ml/img/loss.png",
+            "image": "/ml/img/loss.png",
             "bullets": [
                 "If the model's prediction is perfect, the loss is zero; otherwise, the loss is greater.",
                 "Loss function is a mathematical function that would aggregate the individual losses in a meaningful fashion."
@@ -191,7 +191,7 @@
         },
         "back": {
             "desc": "A technique to minimize loss by computing the gradients of loss with respect to the model's parameters, conditioned on training data.",
-            "image": "./ml/img/gradient_descent.svg",
+            "image": "/ml/img/gradient_descent.svg",
             "bullets": [
                 "Informally, gradient descent iteratively adjusts parameters, gradually finding the best combination of weights and bias to minimize loss."
             ]
@@ -206,7 +206,7 @@
         },
         "back": {
             "desc": "Gradient descent algorithms multiply the gradient by a scalar known as the <b>learning rate</b> to determine the next point.",
-            "image": "./ml/img/learning_rate.svg",
+            "image": "/ml/img/learning_rate.svg",
             "bullets": [
                 "Also know as <b>step size</b>",
                 "Learning rate is a key <b>hyperparameter</b>."
@@ -242,7 +242,7 @@
         },
         "back": {
             "desc": "Make sure that your test set is large enough to yield statistically meaningful results and representative of the data set as a whole.",
-            "image": "./ml/img/training_n_test_set.svg",
+            "image": "/ml/img/training_n_test_set.svg",
             "bullets": [
                 "Training set = a subset to train a model.",
                 "Test set = a subset to test the trained model.",

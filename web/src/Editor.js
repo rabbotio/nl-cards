@@ -1,17 +1,13 @@
 import React, { Component } from 'react'
-import './App.css'
 
 import CardList from './components/CardList'
 import datas from './datas/ml/terms.json'
 
-class App extends Component {
+class Editor extends Component {
   render () {
-    return (
-      <div className='App'>
-        <CardList datas={datas} />
-      </div>
-    )
+    const cid = parseInt(this.props.match.params.cid)
+    return <CardList datas={datas} cid={cid} />
   }
 }
 
-export default App
+export default Editor
