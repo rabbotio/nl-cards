@@ -9,7 +9,6 @@ const puppeteer = require('puppeteer')
   await browser.close()
 
   // Optimize
-  // ./pngquant ./output/*.png --ext=.png --force
   await require('util')
     .promisify(require('child_process').exec)('./pngquant ./output/*.png --ext=.png --force')
     .catch(({ stderr }) => console.error(stderr))
