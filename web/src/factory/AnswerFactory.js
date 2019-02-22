@@ -107,7 +107,13 @@ export default class AnswerFactory {
         </Image>
         <Math>
           <InnerContent>
-            <MathJax.Context script='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_SVG'>
+            <MathJax.Context
+              script='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_SVG'
+              options={{
+                messageStyle: 'none',
+                tex2jax: { preview: 'none' }
+              }}
+            >
               <MathJax.Text text={`$$${math}$$`} />
             </MathJax.Context>
           </InnerContent>

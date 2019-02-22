@@ -5,6 +5,7 @@ const StyledCard = styled.div`
   background-color: transparent;
   width: 480px;
   height: 320px;
+  zoom: 200%;
 
   /* For render */
   position: absolute;

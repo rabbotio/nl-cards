@@ -49,7 +49,7 @@
     "1.1.1": {
         "uid": "0",
         "imgs": [
-            "/ml/png/l2_loss.png"
+            "/ml/png/accuracy.png"
         ],
         "msgs": [
             "Remember this?"
