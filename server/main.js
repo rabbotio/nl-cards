@@ -4,7 +4,6 @@ const generate = async cid => {
   const browser = await puppeteer.launch()
   const page = await browser.newPage()
   await page.goto(`http://localhost:3000/view/${cid}`, { waitUntil: 'networkidle0' })
-  // await new Promise(r => setTimeout(r, 1000))
   await page.screenshot({
     path: `./output/${cid}.png`,
     omitBackground: true,
@@ -19,4 +18,4 @@ const generate = async cid => {
     .catch(({ stderr }) => console.error(stderr))
 }
 
-generate(2)
+generate(4)

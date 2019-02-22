@@ -1,12 +1,9 @@
-### TODO
-- [ ] Generate png from svg
-- [ ] Add img type
-- [ ] Add batch of `FlashCard`
-- [ ] Add quick reply for `FlashCard`
-- [ ] Submit to email server
-- [ ] Check unique email
+### Q1
+- [ ] `DATA` : Add batch of `FlashCard`
+- [ ] `BACKEND` : Submit to email server
+- [ ] `BACKEND` : Check unique email
 
-### TOHAVE
+### Q2
 - [ ] Editor
 
 ### TOCARD

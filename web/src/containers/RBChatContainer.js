@@ -44,7 +44,7 @@ function RBChatContainer () {
   const scrollToBottom = () => {
     // Delay a bit...bug?
     const _f = chatRef.current
-    setTimeout(() => _f.scrollIntoView({ block: 'end', behavior: 'smooth' }), 0)
+    setTimeout(() => _f.scrollIntoView({ block: 'end', behavior: 'smooth' }), 100)
   }
 
   const typing = async (nextId, delay = 1000) => {
@@ -62,7 +62,7 @@ function RBChatContainer () {
     const nextChatDatas = chatDatas.concat(nextChatData)
     setChatId(nextId)
 
-    // Capped to 4
+    // Capped
     const _nextChatDatas = nextChatDatas.slice(nextChatDatas.length - 10, nextChatDatas.length)
     setChatDatas(_nextChatDatas)
   }
