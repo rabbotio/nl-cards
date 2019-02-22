@@ -9,28 +9,29 @@ import { Buttonz } from '../ui/Buttonz'
 </Buttonz>
 */
 
-const isPositive = title => title.toLowerCase().indexOf('yes') > -1
-const isNegative = title => title.toLowerCase().indexOf('no') > -1
+const isPositive = label => label.toLowerCase().indexOf('yes') > -1
+const isNegative = label => label.toLowerCase().indexOf('no') > -1
 
-const backgroudColor = title => {
-  if (isPositive(title)) return '#2ecc71'
-  if (isNegative(title)) return '#e74c3c'
+const backgroudColor = label => {
+  if (isPositive(label)) return '#2ecc71'
+  if (isNegative(label)) return '#e74c3c'
 }
 
-const borderColor = title => {
-  if (isPositive(title)) return '#27ae60'
-  if (isNegative(title)) return '#c0392b'
+const borderColor = label => {
+  if (isPositive(label)) return '#27ae60'
+  if (isNegative(label)) return '#c0392b'
 }
 
-function QuickReplyButton ({ title, onClick, disabled }) {
+function QuickReplyButton ({ label, value, onClick, disabled }) {
   return (
     <Buttonz
+      value={value}
       disabled={disabled}
       onClick={onClick}
-      borderColor={borderColor(title)}
-      backgroudColor={backgroudColor(title)}
+      borderColor={borderColor(label)}
+      backgroudColor={backgroudColor(label)}
     >
-      <span>{title}</span>
+      <span>{label}</span>
     </Buttonz>
   )
 }

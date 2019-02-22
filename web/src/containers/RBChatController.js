@@ -4,9 +4,29 @@ const fill = (msgs, target, value) => msgs.map(element => element.replace(new Re
 // eslint-disable-next-line
 const fillEmail = (msgs, value) => fill(msgs, '\\{{email}}', value)
 
-function addController ({ setEmail, json, goto, email, chatDatas }) {
-  const onClick = (event, nextId) => goto(nextId)
-  const onSubmit = (event, nextId) => {
+function addController (user, { setEmail, json, goto, email, chatDatas }) {
+  const onClick = (event, { label, text, nextId }) => {
+    const _replyId = `_${nextId}`
+
+    // Auto reply
+    json[_replyId] = Object.assign(
+      {},
+      {
+        msgs: [text || label],
+        cmds: [
+          {
+            goto: nextId
+          }
+        ]
+      },
+      user.profile
+    )
+
+    // Go!
+    goto(_replyId)
+  }
+
+  const onSubmit = (event, { nextId }) => {
     const { value } = event.target.elements[0]
 
     // Confirm email

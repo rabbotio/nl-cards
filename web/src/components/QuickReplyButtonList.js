@@ -11,8 +11,8 @@ const QuickReplyButtonContainer = styled.div`
 `
 
 function makeQuickReplyButton (data) {
-  return data.map(({ title, onClick, disabled }, index) => {
-    return <QuickReplyButton key={index} title={title} onClick={onClick} disabled={disabled} />
+  return data.map(({ label, value, onClick, disabled }, index) => {
+    return <QuickReplyButton key={index} label={label} value={value} onClick={onClick} disabled={disabled} />
   })
 }
 

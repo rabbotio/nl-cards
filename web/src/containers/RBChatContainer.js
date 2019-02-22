@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useContext, useEffect } from 'react'
 import Msgz from '../ui/Msgz'
 import styled from 'styled-components'
 import { getChatStyle, getTypingChatData } from './RBChatStyles'
@@ -35,7 +35,12 @@ for (let key in all) {
   json[key] = Object.assign({}, element, profile)
 }
 
+const UserContext = React.createContext({
+  profile: profiles['1']
+})
+
 function RBChatContainer () {
+  const user = useContext(UserContext)
   const [chatId, setChatId] = useState('0')
   const [chatDatas, setChatDatas] = useState([json[chatId]])
   const [email, setEmail] = useState('')
@@ -94,7 +99,7 @@ function RBChatContainer () {
   )
 
   // Add input events mostly
-  addController({ setEmail, json, goto, email, chatDatas })
+  addController(user, { setEmail, json, goto, email, chatDatas })
 
   return (
     <Containerz>

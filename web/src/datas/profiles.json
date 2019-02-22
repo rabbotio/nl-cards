@@ -1,9 +1,11 @@
 {
     "0": {
+        "id": "0",
         "name": "kat",
         "img": "./img/kat.png"
     },
     "1": {
+        "id": "1",
         "name": "you",
         "img": "./img/duck.png"
     }
