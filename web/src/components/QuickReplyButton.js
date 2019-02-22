@@ -9,8 +9,8 @@ import { Buttonz } from '../ui/Buttonz'
 </Buttonz>
 */
 
-const isPositive = title => title.toLowerCase().indexOf('yes') > 0
-const isNegative = title => title.toLowerCase().indexOf('no') > 0
+const isPositive = title => title.toLowerCase().indexOf('yes') > -1
+const isNegative = title => title.toLowerCase().indexOf('no') > -1
 
 const backgroudColor = title => {
   if (isPositive(title)) return '#2ecc71'
