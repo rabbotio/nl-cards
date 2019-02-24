@@ -6,6 +6,8 @@ import { getChatStyle, getTypingChatData } from './RBChatStyles'
 import all from '../datas/all.json'
 import profiles from '../datas/profiles.json'
 import { addController } from './RBChatController'
+import { getJSON } from '@rabbotio/fetcher'
+import { parseDeck } from '../factory/RBCardParser'
 
 const Containerz = styled.div`
    {
@@ -26,23 +28,41 @@ const Containerz = styled.div`
 `
 
 const Chatz = getChatStyle('#3498db', '#ecf0f1')
+const json = {}
 
 // Merge chat & profiles
-const json = {}
-for (let key in all) {
-  const element = all[key]
-  const profile = profiles[element.uid]
-  json[key] = Object.assign({}, element, profile)
+const applyProfile = source => {
+  for (let key in source) {
+    const element = source[key]
+    const profile = profiles[element.uid]
+    json[key] = Object.assign({}, element, profile)
+  }
 }
+
+applyProfile(all)
 
 const UserContext = React.createContext({
   profile: profiles['1']
 })
 
+// TODO
+const loadDeck = async deckUri => {
+  if (!deckUri || deckUri === '') return
+  const decks = await getJSON(deckUri).catch(console.error)
+  return parseDeck(decks)
+}
+
+// TODO : async
+const getDecks = topic => parseDeck({})
+
 function RBChatContainer () {
   const user = useContext(UserContext)
   const [chatId, setChatId] = useState('0')
   const [chatDatas, setChatDatas] = useState([json[chatId]])
+
+  const [topic, setTopic] = useState('')
+  // const [deckDatas, setDeckDatas] = useState(getDecks(topic))
+
   const [email, setEmail] = useState('')
 
   const chatRef = React.createRef()
@@ -62,7 +82,7 @@ function RBChatContainer () {
     return new Promise(r => setTimeout(r, delay))
   }
 
-  const goto = nextId => {
+  const goto = async nextId => {
     const nextChatData = Object.assign({}, json[nextId])
     const nextChatDatas = chatDatas.concat(nextChatData)
     setChatId(nextId)
@@ -70,10 +90,44 @@ function RBChatContainer () {
     // Capped
     const _nextChatDatas = nextChatDatas.slice(nextChatDatas.length - 10, nextChatDatas.length)
     setChatDatas(_nextChatDatas)
+
+    return nextId
   }
 
   useEffect(
     () => {
+      if (!topic || topic === '') return
+      ;(async () => {
+        const _topicChatData = await loadDeck(`/${topic}/deck.json`)
+        const nextId = Object.keys(_topicChatData)[0]
+
+        Object.assign(json, _topicChatData)
+        applyProfile(json)
+
+        typing(nextId).then(() => goto(nextId))
+      })()
+    },
+    [topic]
+  )
+
+  useEffect(
+    () => {
+      // Play deck?
+      const currentChatData = chatDatas[chatDatas.length - 1]
+      const { deck, jump } = currentChatData
+
+      if (deck) {
+        const _topic = deck.split('/')[1]
+        setTopic(_topic)
+        return
+      }
+
+      // Jump?
+      if (jump) {
+        typing(jump).then(() => goto(jump))
+        return
+      }
+
       // Commands
       const cmds = chatDatas[chatDatas.length - 1].cmds
       cmds &&
@@ -82,6 +136,8 @@ function RBChatContainer () {
           const param = cmd[action]
 
           switch (action) {
+            case 'load':
+              break
             case 'goto':
               const nextId = param
               typing(nextId).then(() => goto(nextId))

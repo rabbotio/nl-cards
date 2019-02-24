@@ -12,7 +12,7 @@
             },
             {
                 "label": "Yes!",
-                "nextId": "1.1"
+                "nextId": "1"
             }
         ]
     },
@@ -23,68 +23,19 @@
             "Maybe later then"
         ]
     },
-    "1.1": {
+    "0.2": {
         "uid": "0",
-        "imgs": [
-            "/ml/png/accuracy.png"
-        ],
         "msgs": [
-            "Remember this?"
-        ],
-        "replies": [
-            {
-                "label": "No...",
-                "value": 0,
-                "nextId": "1.2"
-            },
-            {
-                "label": "Yes!",
-                "value": 1,
-                "nextId": "1.2"
-            }
+            "Awww...",
+            "Something wrong..."
         ]
     },
-    "1.2": {
+    "1": {
         "uid": "0",
-        "imgs": [
-            "/ml/png/precision.png"
-        ],
         "msgs": [
-            "Remember this?"
+            "Let's start!"
         ],
-        "replies": [
-            {
-                "label": "No...",
-                "value": 0,
-                "nextId": "1.3"
-            },
-            {
-                "label": "Yes!",
-                "value": 1,
-                "nextId": "1.3"
-            }
-        ]
-    },
-    "1.3": {
-        "uid": "0",
-        "imgs": [
-            "/ml/png/recall.png"
-        ],
-        "msgs": [
-            "Remember this?"
-        ],
-        "replies": [
-            {
-                "label": "No...",
-                "value": 0,
-                "nextId": "2"
-            },
-            {
-                "label": "Yes!",
-                "value": 1,
-                "nextId": "2"
-            }
-        ]
+        "deck": "/ml/deck.json"
     },
     "2": {
         "uid": "0",
@@ -92,11 +43,7 @@
             "You scored 100% nice!",
             "BTW, To keep your memory permanent we will need your <b>email</b>"
         ],
-        "cmds": [
-            {
-                "goto": "3"
-            }
-        ]
+        "jump": "3"
     },
     "3": {
         "uid": "0",
