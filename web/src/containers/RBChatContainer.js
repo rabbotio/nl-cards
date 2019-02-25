@@ -7,7 +7,7 @@ import all from '../datas/all.json'
 import profiles from '../datas/profiles.json'
 import { addController } from './RBChatController'
 import { getJSON } from '@rabbotio/fetcher'
-import { parseDeck } from '../factory/RBCardParser'
+import { parseDeck } from '../parsers/RBCardParser'
 
 const Containerz = styled.div`
    {
