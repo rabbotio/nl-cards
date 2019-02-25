@@ -1,26 +1,51 @@
 import { getJSON } from '@rabbotio/fetcher'
 
-function parseDeck (cardURIs) {
-  const getNextId = index => (index < cardURIs.length - 1 ? `1.${index + 1}` : '2')
+function parseDeck (cardDatas) {
+  const getNextId = index => (index < cardDatas.length - 1 ? `1.${index + 1}` : '2')
 
   const deckObject = {}
-  cardURIs.forEach((uri, index) => {
-    deckObject[`1.${index}`] = {
+  cardDatas.forEach(({ text, img }, index) => {
+    const askId = `1.${index}`
+    const noId = `1.${index}.1`
+    const revealId = `1.${index}.2`
+
+    const yesId = `1.${index}.3`
+    const nextId = getNextId(index)
+
+    deckObject[askId] = {
       uid: '0',
-      imgs: [uri],
-      msgs: ['Remember this?'],
+      msgs: [`Remember <b>${text}</b>?`],
       replies: [
         {
           label: 'No...',
           value: 0,
-          jump: getNextId(index)
+          jump: noId
         },
         {
           label: 'Yes!',
           value: 1,
-          jump: getNextId(index)
+          jump: yesId
         }
       ]
+    }
+
+    deckObject[noId] = {
+      uid: '0',
+      msgs: [`That's OK! See below for answer`],
+      jump: revealId
+    }
+
+    deckObject[revealId] = {
+      uid: '0',
+      msgs: [`Let's continue!`],
+      imgs: [img],
+      jump: nextId
+    }
+
+    deckObject[yesId] = {
+      uid: '0',
+      msgs: [`Cool!`],
+      jump: nextId
     }
   })
 
