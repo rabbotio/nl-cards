@@ -5,19 +5,14 @@ const fill = (msgs, target, value) => msgs.map(element => element.replace(new Re
 const fillEmail = (msgs, value) => fill(msgs, '\\{{email}}', value)
 
 function addController (user, { setEmail, json, goto, email, chatDatas }) {
-  const onClick = (event, { label, text, nextId }) => {
-    const _replyId = `_${nextId}`
+  const onClick = (event, { label, text, jump }) => {
+    const _replyId = `_${jump}`
 
     // Auto reply
     json[_replyId] = Object.assign(
-      {},
       {
         msgs: [text || label],
-        cmds: [
-          {
-            goto: nextId
-          }
-        ]
+        jump
       },
       user.profile
     )
@@ -26,18 +21,18 @@ function addController (user, { setEmail, json, goto, email, chatDatas }) {
     goto(_replyId)
   }
 
-  const onSubmit = (event, { nextId }) => {
+  const onSubmit = (event, { jump }) => {
     const { value } = event.target.elements[0]
 
     // Confirm email
-    const chatData = json[nextId]
+    const chatData = json[jump]
     chatData.msgs = fillEmail(chatData.msgs, value)
 
     // Set state
     setEmail(value)
 
     // Go!
-    goto(nextId)
+    goto(jump)
   }
 
   // Set active only last one

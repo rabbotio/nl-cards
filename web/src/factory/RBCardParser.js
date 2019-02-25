@@ -11,12 +11,12 @@ function parseDeck (cardURIs) {
         {
           label: 'No...',
           value: 0,
-          nextId: getNextId(index)
+          jump: getNextId(index)
         },
         {
           label: 'Yes!',
           value: 1,
-          nextId: getNextId(index)
+          jump: getNextId(index)
         }
       ]
     }

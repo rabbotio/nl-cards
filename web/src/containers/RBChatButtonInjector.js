@@ -7,8 +7,8 @@ function injectButtonEvent (replies, { onClick }) {
     element =>
       (element.onClick = event => {
         // Callback
-        const { label, text, nextId } = element
-        onClick(event, { label, text, nextId })
+        const { label, text, jump } = element
+        onClick(event, { label, text, jump })
       })
   )
 }
@@ -25,8 +25,8 @@ function injectSubmitEvent (inputs, { onSubmit }) {
         event.preventDefault()
 
         // Callback
-        const { nextId } = element
-        onSubmit(event, { nextId })
+        const { jump } = element
+        onSubmit(event, { jump })
       })
   )
 }

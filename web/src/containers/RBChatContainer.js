@@ -128,26 +128,6 @@ function RBChatContainer () {
         return
       }
 
-      // Commands
-      const cmds = chatDatas[chatDatas.length - 1].cmds
-      cmds &&
-        cmds.forEach(cmd => {
-          const action = Object.keys(cmd)[0]
-          const param = cmd[action]
-
-          switch (action) {
-            case 'load':
-              break
-            case 'goto':
-              const nextId = param
-              typing(nextId).then(() => goto(nextId))
-              break
-            default:
-              console.log('N/A')
-              break
-          }
-        })
-
       // Scroll to bottom
       scrollToBottom()
     },

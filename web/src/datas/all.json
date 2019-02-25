@@ -8,11 +8,11 @@
         "replies": [
             {
                 "label": "No...",
-                "nextId": "0.1"
+                "jump": "0.1"
             },
             {
                 "label": "Yes!",
-                "nextId": "1"
+                "jump": "1"
             }
         ]
     },
@@ -53,7 +53,7 @@
         "inputs": [
             {
                 "type": "email",
-                "nextId": "3.1"
+                "jump": "3.1"
             }
         ]
     },
@@ -62,11 +62,7 @@
         "msgs": [
             "{{email}}"
         ],
-        "cmds": [
-            {
-                "goto": "3.2"
-            }
-        ]
+        "jump": "3.2"
     },
     "3.2": {
         "uid": "0",
@@ -76,11 +72,11 @@
         "replies": [
             {
                 "label": "No...",
-                "nextId": "3"
+                "jump": "3"
             },
             {
                 "label": "Yes!",
-                "nextId": "4"
+                "jump": "4"
             }
         ]
     },
