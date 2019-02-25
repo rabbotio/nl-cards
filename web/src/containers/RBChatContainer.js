@@ -3,10 +3,9 @@ import Msgz from '../ui/Msgz'
 import styled from 'styled-components'
 import { getChatStyle, getTypingChatData } from './RBChatStyles'
 
-import all from '../datas/all.json'
-import profiles from '../datas/profiles.json'
 import { addController } from './RBChatController'
 import DeckFactory from '../factory/DeckFactory'
+import { applyProfile, initProfile, getProfile } from './RBChatProfile'
 
 const Containerz = styled.div`
    {
@@ -27,21 +26,10 @@ const Containerz = styled.div`
 `
 
 const Chatz = getChatStyle('#3498db', '#ecf0f1')
-const json = {}
-
-// Merge chat & profiles
-const applyProfile = source => {
-  for (let key in source) {
-    const element = source[key]
-    const profile = profiles[element.uid]
-    json[key] = Object.assign({}, element, profile)
-  }
-}
-
-applyProfile(all)
+const json = initProfile()
 
 const UserContext = React.createContext({
-  profile: profiles['1']
+  profile: getProfile()
 })
 
 const scrollToBottom = ref => setTimeout(() => ref.scrollIntoView({ block: 'end', behavior: 'smooth' }), 100)
