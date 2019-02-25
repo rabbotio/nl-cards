@@ -6,8 +6,7 @@ import { getChatStyle, getTypingChatData } from './RBChatStyles'
 import all from '../datas/all.json'
 import profiles from '../datas/profiles.json'
 import { addController } from './RBChatController'
-import { getJSON } from '@rabbotio/fetcher'
-import { parseDeck } from '../parsers/RBCardParser'
+import DeckFactory from '../factory/DeckFactory'
 
 const Containerz = styled.div`
    {
@@ -45,29 +44,16 @@ const UserContext = React.createContext({
   profile: profiles['1']
 })
 
-// TODO
-const loadDeck = async deckUri => {
-  if (!deckUri || deckUri === '') return
-  const decks = await getJSON(deckUri).catch(console.error)
-  return parseDeck(decks)
-}
+const scrollToBottom = ref => setTimeout(() => ref.scrollIntoView({ block: 'end', behavior: 'smooth' }), 100)
 
 function RBChatContainer () {
   const user = useContext(UserContext)
   const [chatId, setChatId] = useState('0')
   const [chatDatas, setChatDatas] = useState([json[chatId]])
-
   const [topic, setTopic] = useState('')
   // const [deckDatas, setDeckDatas] = useState(getDecks(topic))
-
   const [email, setEmail] = useState('')
-
   const chatRef = React.createRef()
-  const scrollToBottom = () => {
-    // Delay a bit...bug?
-    const _f = chatRef.current
-    setTimeout(() => _f.scrollIntoView({ block: 'end', behavior: 'smooth' }), 100)
-  }
 
   const typing = async (nextId, delay = 1000) => {
     const { uid, name, img } = json[nextId]
@@ -95,12 +81,8 @@ function RBChatContainer () {
     () => {
       if (!topic || topic === '') return
       ;(async () => {
-        const _topicChatData = await loadDeck(`/${topic}/deck.json`)
-        const nextId = Object.keys(_topicChatData)[0]
-
-        Object.assign(json, _topicChatData)
+        const nextId = await DeckFactory.build(json, topic)
         applyProfile(json)
-
         typing(nextId).then(() => goto(nextId))
       })()
     },
@@ -126,7 +108,7 @@ function RBChatContainer () {
       }
 
       // Scroll to bottom
-      scrollToBottom()
+      scrollToBottom(chatRef.current)
     },
     [chatDatas]
   )

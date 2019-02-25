@@ -1,3 +1,5 @@
+import { getJSON } from '@rabbotio/fetcher'
+
 function parseDeck (cardURIs) {
   const getNextId = index => (index < cardURIs.length - 1 ? `1.${index + 1}` : '2')
 
@@ -25,4 +27,15 @@ function parseDeck (cardURIs) {
   return deckObject
 }
 
-export { parseDeck }
+export default class DeckFactory {
+  static async build (json, topic) {
+    if (!topic || topic === '') return
+    const deckURI = `/${topic}/deck.json`
+    const deckJSON = await getJSON(deckURI).catch(console.error)
+    const deckData = parseDeck(deckJSON)
+    const nextId = Object.keys(deckData)[0]
+
+    Object.assign(json, deckData)
+    return nextId
+  }
+}
