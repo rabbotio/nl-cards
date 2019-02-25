@@ -38,17 +38,25 @@
         "deck": "/ml/deck.json"
     },
     "2": {
+        "context": "RESULTS",
         "uid": "0",
         "msgs": [
-            "You scored 100% nice!",
-            "BTW, To keep your memory permanent we will need your <b>email</b>"
+            "You scored 100% nice!"
         ],
         "jump": "3"
+    },
+    "2.1": {
+        "uid": "0",
+        "msgs": [
+            "Try again!"
+        ],
+        "jump": "1"
     },
     "3": {
         "uid": "0",
         "msgs": [
-            "So, What's your email address plz?"
+            "We will need your <b>email</b> to notify you",
+            "What's your email address plz?"
         ],
         "inputs": [
             {

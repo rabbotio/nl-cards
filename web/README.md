@@ -1,4 +1,6 @@
 ### Q1
+- [ ] `DATA` : Add score
+- [ ] `FLOW` : Use context
 - [ ] `DATA` : Add batch of `FlashCard`
 - [ ] `BACKEND` : Submit to email server
 - [ ] `BACKEND` : Check unique email

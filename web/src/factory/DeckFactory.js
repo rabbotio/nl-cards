@@ -18,12 +18,12 @@ function parseDeck (cardDatas) {
       replies: [
         {
           label: 'No...',
-          value: 0,
+          value: JSON.stringify({ ans: 'no', index }),
           jump: noId
         },
         {
           label: 'Yes!',
-          value: 1,
+          value: JSON.stringify({ ans: 'yes', index }),
           jump: yesId
         }
       ]
@@ -37,7 +37,7 @@ function parseDeck (cardDatas) {
 
     deckObject[revealId] = {
       uid: '0',
-      msgs: [`Let's continue!`],
+      msgs: [index < cardDatas.length - 1 ? `Let's continue!` : `That's it!`],
       imgs: [img],
       jump: nextId
     }

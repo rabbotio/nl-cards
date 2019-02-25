@@ -7,8 +7,8 @@ function injectButtonEvent (replies, { onClick }) {
     element =>
       (element.onClick = event => {
         // Callback
-        const { label, text, jump } = element
-        onClick(event, { label, text, jump })
+        const { label, text, value, jump } = element
+        onClick(event, { label, text, value, jump })
       })
   )
 }

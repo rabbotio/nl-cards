@@ -29,7 +29,9 @@ const Chatz = getChatStyle('#3498db', '#ecf0f1')
 const json = initProfile()
 
 const UserContext = React.createContext({
-  profile: getProfile()
+  context: 'NEW',
+  profile: getProfile(),
+  losts: []
 })
 
 const scrollToBottom = ref => setTimeout(() => ref.scrollIntoView({ block: 'end', behavior: 'smooth' }), 100)
@@ -101,8 +103,16 @@ function RBChatContainer () {
     [chatDatas]
   )
 
+  // Collect lost
+  const callback = value => {
+    if (!value) return
+
+    const { ans, index } = JSON.parse(value)
+    if (ans === 'no') user.losts.push(index)
+  }
+
   // Add input events mostly
-  addController(user, { setEmail, json, goto, email, chatDatas })
+  addController(user, { setTopic, setEmail, json, goto, email, chatDatas, callback })
 
   return (
     <Containerz>
