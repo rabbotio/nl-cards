@@ -40,10 +40,13 @@ function addController (user, { setEmail, json, goto, email, chatDatas }) {
   // Add intercept
   const chatData = chatDatas[chatDatas.length - 1]
   if (chatData) {
-    // Replace with email
-    // TODO : Fix this overfitting!
-    chatData.msgs && email && (chatData.msgs = fillEmail(chatData.msgs, email))
+    // Replace {{email}} with email
+    chatData.msgs &&
+      chatData.msgs[0].indexOf('{{email}}') > 0 &&
+      email &&
+      (chatData.msgs = fillEmail(chatData.msgs, email))
 
+    // Inject
     chatData.replies && injectButtonEvent(chatData.replies, { onClick })
     chatData.inputs && injectSubmitEvent(chatData.inputs, { onSubmit })
   }
