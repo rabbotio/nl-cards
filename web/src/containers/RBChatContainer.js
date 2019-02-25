@@ -52,9 +52,6 @@ const loadDeck = async deckUri => {
   return parseDeck(decks)
 }
 
-// TODO : async
-const getDecks = topic => parseDeck({})
-
 function RBChatContainer () {
   const user = useContext(UserContext)
   const [chatId, setChatId] = useState('0')
