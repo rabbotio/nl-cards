@@ -64,7 +64,7 @@ function addController (user, { setTopic, setEmail, json, goto, email, chatDatas
       chatData.msgs = fillEmail(chatData.msgs, email)
       break
     default:
-      console.dir(chatData)
+      // Do something?
       break
   }
 
