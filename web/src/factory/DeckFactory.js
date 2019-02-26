@@ -4,17 +4,17 @@ function parseDeck (cardDatas) {
   const getNextId = index => (index < cardDatas.length - 1 ? `TASK.${index + 1}` : 'END')
 
   const deckObject = {}
-  cardDatas.forEach(({ text, img }, index) => {
+  cardDatas.forEach(({ questions, answers }, index) => {
     const askId = `TASK.${index}`
-    const noId = `TASK.${index}.1`
+    const noId = `TASK.${index}.0`
     const revealId = `TASK.${index}.2`
 
-    const yesId = `TASK.${index}.3`
+    const yesId = `TASK.${index}.1`
     const nextId = getNextId(index)
 
     deckObject[askId] = {
       uid: '0',
-      msgs: [`Remember <b>${text}</b>?`],
+      msgs: questions.concat(['Remember that?']),
       replies: [
         {
           label: 'No...',
@@ -38,7 +38,7 @@ function parseDeck (cardDatas) {
     deckObject[revealId] = {
       uid: '0',
       msgs: [index < cardDatas.length - 1 ? `Let's continue!` : `That's it!`],
-      imgs: [img],
+      imgs: answers,
       jump: nextId
     }
 
@@ -53,14 +53,18 @@ function parseDeck (cardDatas) {
 }
 
 export default class DeckFactory {
-  static async build (json, topic) {
+  static async build (json, topic, source) {
     if (!topic || topic === '') return
-    const deckURI = `/${topic}/deck.json`
+    if (!source || source === '') return
+
+    const deckURI = `/${topic}/${source}/index.json`
     const deckJSON = await getJSON(deckURI).catch(console.error)
+    console.dir(`${deckURI}:deckURI`)
     const deckData = parseDeck(deckJSON)
     const nextId = Object.keys(deckData)[0]
 
     Object.assign(json, deckData)
+    console.dir(json)
     return nextId
   }
 }

@@ -1,0 +1,18 @@
+[
+    {
+        "questions": [
+            "What is the difference between <b>Probability</b> and <b>Likelihood</b>?"
+        ],
+        "answers": [
+            "/ml/accenture/0.png"
+        ]
+    },
+    {
+        "questions": [
+            "What is the <b>Bayes theorem</b>? How it is useful in a machine learning context?"
+        ],
+        "answers": [
+            "/ml/accenture/1.png"
+        ]
+    }
+]

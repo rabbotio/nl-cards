@@ -1,0 +1,34 @@
+[
+    {
+        "front": {
+            "title": "What is the difference between <b>Probability</b> and <b>Likelihood</b>?"
+        },
+        "back": {
+            "desc": "During the training phase, given some data, we determine the parameters of our model such that our model performance is maximized.",
+            "math": "\\text{Likelihood ⚔️ Probability}",
+            "bullets": [
+                "<b>Likelihood</b> : During the training phase, given some outcome, we determine theta that maximizes the probability that such an outcome occurs.",
+                "<b>Probability</b> : During the testing phase given a theta, we determine the probability of observing the outcome."
+            ]
+        },
+        "res": [
+            "[10 Essential ML Interview Questions by Accenture](https://www.thelearningmachine.ai/accenture)"
+        ]
+    },
+    {
+        "front": {
+            "title": "What is the <b>Bayes theorem</b>? How it is useful in a machine learning context?"
+        },
+        "back": {
+            "desc": "<b>Bayes theorem</b> allows us to determine posterior probabilities from our priors when presented with evidence. More simply, it is a method of revising existing predictions given new evidence.",
+            "math": "\\text{Bayes theorem}",
+            "bullets": [
+                "How much more likely A is than B now, equals to how much more likely A was than B before we saw new evidence",
+                "Times how much more likely this evidence would be to occur if A were true than if B were true."
+            ]
+        },
+        "res": [
+            "[10 Essential ML Interview Questions by Accenture](https://www.thelearningmachine.ai/accenture)"
+        ]
+    }
+]

@@ -41,13 +41,12 @@ function RBChatContainer () {
   const [chatId, setChatId] = useState('INIT')
   const [chatDatas, setChatDatas] = useState([json[chatId]])
   const [topic, setTopic] = useState('')
+  const [source, setSource] = useState('')
   // const [deckDatas, setDeckDatas] = useState(getDecks(topic))
   const [email, setEmail] = useState('')
   const chatRef = React.createRef()
 
   const typing = async (nextId, delay = 1000) => {
-    console.log('nextId:' + nextId)
-    console.dir(json)
     const { uid, name, img } = json[nextId]
 
     const typingChatData = getTypingChatData({ uid, name, img })
@@ -73,7 +72,7 @@ function RBChatContainer () {
     () => {
       if (!topic || topic === '') return
       ;(async () => {
-        const nextId = await DeckFactory.build(json, topic)
+        const nextId = await DeckFactory.build(json, topic, source)
         applyProfile(json)
         typing(nextId).then(() => goto(nextId))
       })()
@@ -88,7 +87,10 @@ function RBChatContainer () {
       const { deck, jump } = currentChatData
 
       if (deck) {
-        const _topic = deck.split('/')[1]
+        // eslint-disable-next-line
+        const [_, _topic, _source] = deck.split('/')
+        console.log(_topic, _source)
+        setSource(_source)
         setTopic(_topic)
         return
       }

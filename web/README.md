@@ -9,7 +9,7 @@
 ### Q1
 - [x] `DATA` : Add score
 - [x] `FLOW` : Use context
-- [ ] `DATA` : Add batch of `FlashCard`
+- [x] `DATA` : Add batch of `FlashCard`
 - [ ] `BACK` : Submit to email server
 - [ ] `BACK` : Check unique email
 - [ ] `DEF`  : Add positive, negative entity

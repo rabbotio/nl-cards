@@ -53,7 +53,6 @@ function addController (user, { setTopic, setEmail, json, goto, email, chatDatas
 
   // Add intercept
   const chatData = chatDatas[chatDatas.length - 1]
-  console.dir(chatDatas)
   const botContext = chatData.context
   if (!chatData) return
 
