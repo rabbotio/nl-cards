@@ -1,7 +1,8 @@
 import { injectButtonEvent, injectSubmitEvent } from './RBChatButtonInjector'
 
-const fill = (msgs, target, value) => msgs.map(element => element.replace(new RegExp(target, 'g'), value))
-const fillEmail = (msgs, value) => fill(msgs, '\\{{email}}', value)
+const fill = (msgs, target, value) => msgs.map(element => element.replace(new RegExp(`\\{{${target}}}`, 'g'), value))
+const fillEmail = (msgs, value) => fill(msgs, 'email', value)
+const fillScore = (msgs, value) => fill(msgs, 'score', value)
 
 function addController (user, { setTopic, setEmail, json, goto, email, chatDatas, callback }) {
   const onClick = (event, { label, text, value, jump }) => {
@@ -42,28 +43,34 @@ function addController (user, { setTopic, setEmail, json, goto, email, chatDatas
 
   // Add intercept
   const chatData = chatDatas[chatDatas.length - 1]
-  if (chatData) {
-    // TODO : Clean this!!!
-    // RESULTS?
-    if (chatData.context === 'RESULTS' && user.losts.length > 0) {
+  if (!chatData) return
+  switch (chatData.context) {
+    case 'RESULTS':
+      if (user.losts.length <= 0) break
+
+      // Add score
+      chatData.msgs = fillScore(chatData.msgs, `${user.losts.length} memor${user.losts.length === 1 ? 'y' : 'ies'}`)
+
+      // Reset and Retry
       user.context = 'RETRY'
       user.losts = []
       setTopic('')
+
       goto('2.1')
-      return
-    }
+      break
+    case 'CONFIRM_EMAIL':
+      if (!email || user.losts.length <= 0) break
 
-    // TODO : Use context EMAIL
-    // Replace {{email}} with email
-    chatData.msgs &&
-      chatData.msgs[0].indexOf('{{email}}') > 0 &&
-      email &&
-      (chatData.msgs = fillEmail(chatData.msgs, email))
-
-    // Inject
-    chatData.replies && injectButtonEvent(chatData.replies, { onClick })
-    chatData.inputs && injectSubmitEvent(chatData.inputs, { onSubmit })
+      chatData.msgs = fillEmail(chatData.msgs, email)
+      break
+    default:
+      console.dir(chatData)
+      break
   }
+
+  // Inject
+  chatData.replies && injectButtonEvent(chatData.replies, { onClick })
+  chatData.inputs && injectSubmitEvent(chatData.inputs, { onSubmit })
 }
 
 export { addController }
