@@ -1,14 +1,26 @@
 [
     {
-        "text": "Accuracy",
-        "img": "/ml/google_crash_course/0.png"
+        "questions": [
+            "<b>Accuracy</b>"
+        ],
+        "answers": [
+            "/ml/google_crash_course/0.png"
+        ]
     },
     {
-        "text": "Precision",
-        "img": "/ml/google_crash_course/1.png"
+        "questions": [
+            "<b>Precision</b>"
+        ],
+        "answers": [
+            "/ml/google_crash_course/1.png"
+        ]
     },
     {
-        "text": "Recall",
-        "img": "/ml/google_crash_course/2.png"
+        "questions": [
+            "<b>Recall</b>"
+        ],
+        "answers": [
+            "/ml/google_crash_course/2.png"
+        ]
     }
 ]

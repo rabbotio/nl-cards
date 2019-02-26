@@ -35,7 +35,7 @@
         "msgs": [
             "Let's start!"
         ],
-        "deck": "/ml/accenture/index.json"
+        "deck": "/ml/google_crash_course/index.json"
     },
     "END": {
         "uid": "0",
