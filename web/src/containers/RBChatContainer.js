@@ -38,7 +38,7 @@ const scrollToBottom = ref => setTimeout(() => ref.scrollIntoView({ block: 'end'
 
 function RBChatContainer () {
   const user = useContext(UserContext)
-  const [chatId, setChatId] = useState('0')
+  const [chatId, setChatId] = useState('INIT')
   const [chatDatas, setChatDatas] = useState([json[chatId]])
   const [topic, setTopic] = useState('')
   // const [deckDatas, setDeckDatas] = useState(getDecks(topic))
@@ -46,6 +46,8 @@ function RBChatContainer () {
   const chatRef = React.createRef()
 
   const typing = async (nextId, delay = 1000) => {
+    console.log('nextId:' + nextId)
+    console.dir(json)
     const { uid, name, img } = json[nextId]
 
     const typingChatData = getTypingChatData({ uid, name, img })
@@ -61,7 +63,7 @@ function RBChatContainer () {
     setChatId(nextId)
 
     // Capped
-    const _nextChatDatas = nextChatDatas.slice(nextChatDatas.length - 10, nextChatDatas.length)
+    const _nextChatDatas = nextChatDatas.slice(nextChatDatas.length - 16, nextChatDatas.length)
     setChatDatas(_nextChatDatas)
 
     return nextId

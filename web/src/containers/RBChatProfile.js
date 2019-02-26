@@ -3,8 +3,14 @@ import profiles from '../datas/profiles.json'
 
 const getProfile = () => profiles['1']
 
+const initContext = () => {
+  for (let key in all) all[key].context = key
+}
+initContext()
+
 // Merge chat & profiles
 const initProfile = () => {
+  // Apply profile
   const json = Object.assign({}, all)
   return applyProfile(json)
 }

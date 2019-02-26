@@ -27,15 +27,25 @@ function addController (user, { setTopic, setEmail, json, goto, email, chatDatas
   const onSubmit = (event, { jump }) => {
     const { value } = event.target.elements[0]
 
-    // Confirm email
-    const chatData = json[jump]
-    chatData.msgs = fillEmail(chatData.msgs, value)
+    // TODO : Support more input type
+    console.log(event.target.type)
+
+    const _replyId = `_${jump}`
+
+    // Auto reply
+    json[_replyId] = Object.assign(
+      {
+        msgs: [value],
+        jump: 'CONFIRM_EMAIL'
+      },
+      user.profile
+    )
 
     // Set state
     setEmail(value)
 
     // Go!
-    goto(jump)
+    goto(_replyId)
   }
 
   // Set active only last one
@@ -43,23 +53,32 @@ function addController (user, { setTopic, setEmail, json, goto, email, chatDatas
 
   // Add intercept
   const chatData = chatDatas[chatDatas.length - 1]
+  console.dir(chatDatas)
+  const botContext = chatData.context
   if (!chatData) return
-  switch (chatData.context) {
-    case 'RESULTS':
-      if (user.losts.length <= 0) break
+
+  console.log(`botContext:${botContext}`)
+
+  switch (botContext) {
+    case 'END':
+      const lost = user.losts.length
+
+      console.log(lost)
 
       // Add score
-      chatData.msgs = fillScore(chatData.msgs, `${user.losts.length} memor${user.losts.length === 1 ? 'y' : 'ies'}`)
+      chatData.msgs = fillScore(chatData.msgs, `${lost <= 0 ? 'no' : lost} memor${lost === 1 ? 'y' : 'ies'}`)
 
-      // Reset and Retry
-      user.context = 'RETRY'
-      user.losts = []
-      setTopic('')
+      if (lost > 0) {
+        // Reset and Retry
+        user.context = 'RETRY'
+        user.losts = []
+        setTopic('')
 
-      goto('2.1')
+        goto('RETRY')
+      }
       break
     case 'CONFIRM_EMAIL':
-      if (!email || user.losts.length <= 0) break
+      if (!email || lost <= 0) break
 
       chatData.msgs = fillEmail(chatData.msgs, email)
       break

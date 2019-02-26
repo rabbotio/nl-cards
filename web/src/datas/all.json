@@ -1,6 +1,5 @@
 {
-    "0": {
-        "context": "WELCOME",
+    "INIT": {
         "uid": "0",
         "msgs": [
             "For <b>MVP</b> we only have <b>ML</b>",
@@ -9,53 +8,50 @@
         "replies": [
             {
                 "label": "No...",
-                "jump": "0.1"
+                "jump": "INIT_FAILED"
             },
             {
                 "label": "Yes!",
-                "jump": "1"
+                "jump": "BEGIN"
             }
         ]
     },
-    "0.1": {
+    "INIT_FAILED": {
         "uid": "0",
         "msgs": [
             "Awww...",
             "Maybe later then"
         ]
     },
-    "0.2": {
+    "INIT_ERROR": {
         "uid": "0",
         "msgs": [
             "Awww...",
             "Something wrong..."
         ]
     },
-    "1": {
-        "context": "BEGIN",
+    "BEGIN": {
         "uid": "0",
         "msgs": [
             "Let's start!"
         ],
         "deck": "/ml/deck.json"
     },
-    "2": {
-        "context": "RESULTS",
+    "END": {
         "uid": "0",
         "msgs": [
             "You lost {{score}}!"
         ],
-        "jump": "3"
+        "jump": "INPUT_EMAIL"
     },
-    "2.1": {
+    "RETRY": {
         "uid": "0",
         "msgs": [
             "Try again!"
         ],
-        "jump": "1"
+        "jump": "BEGIN"
     },
-    "3": {
-        "context": "INPUT_EMAIL",
+    "INPUT_EMAIL": {
         "uid": "0",
         "msgs": [
             "We will need your <b>email</b> to notify you",
@@ -64,19 +60,11 @@
         "inputs": [
             {
                 "type": "email",
-                "jump": "3.1"
+                "jump": "CONFIRM_EMAIL"
             }
         ]
     },
-    "3.1": {
-        "context": "CONFIRM_EMAIL",
-        "uid": "1",
-        "msgs": [
-            "{{email}}"
-        ],
-        "jump": "3.2"
-    },
-    "3.2": {
+    "CONFIRM_EMAIL": {
         "uid": "0",
         "msgs": [
             "Send to <b>{{email}}</b> address?"
@@ -84,16 +72,15 @@
         "replies": [
             {
                 "label": "No...",
-                "jump": "3"
+                "jump": "INPUT_EMAIL"
             },
             {
                 "label": "Yes!",
-                "jump": "4"
+                "jump": "DONE"
             }
         ]
     },
-    "4": {
-        "context": "DONE",
+    "DONE": {
         "uid": "0",
         "msgs": [
             "Thanks!"

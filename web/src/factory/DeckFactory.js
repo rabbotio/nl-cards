@@ -1,15 +1,15 @@
 import { getJSON } from '@rabbotio/fetcher'
 
 function parseDeck (cardDatas) {
-  const getNextId = index => (index < cardDatas.length - 1 ? `1.${index + 1}` : '2')
+  const getNextId = index => (index < cardDatas.length - 1 ? `TASK.${index + 1}` : 'END')
 
   const deckObject = {}
   cardDatas.forEach(({ text, img }, index) => {
-    const askId = `1.${index}`
-    const noId = `1.${index}.1`
-    const revealId = `1.${index}.2`
+    const askId = `TASK.${index}`
+    const noId = `TASK.${index}.1`
+    const revealId = `TASK.${index}.2`
 
-    const yesId = `1.${index}.3`
+    const yesId = `TASK.${index}.3`
     const nextId = getNextId(index)
 
     deckObject[askId] = {
