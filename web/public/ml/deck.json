@@ -1,14 +1,14 @@
 [
     {
-        "text": "accuracy",
+        "text": "Accuracy",
         "img": "/ml/png/accuracy.png"
     },
     {
-        "text": "precision",
+        "text": "Precision",
         "img": "/ml/png/precision.png"
     },
     {
-        "text": "recall",
+        "text": "Recall",
         "img": "/ml/png/recall.png"
     }
 ]
