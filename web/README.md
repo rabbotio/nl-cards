@@ -36,3 +36,4 @@
 - [ ] 10 Essential ML Interview Questions by Accenture : https://www.thelearningmachine.ai/accenture
 - [ ] Machine Learning for Everyone : https://vas3k.com/blog/machine_learning/
 - [ ] CS 229 - Machine Learning : https://stanford.edu/~shervine/teaching/cs-229/cheatsheet-supervised-learning
+- [ ] StatQuest with Josh Starmer : https://www.youtube.com/channel/UCtYLUTtgS3k1Fg4y5tAhLbw
