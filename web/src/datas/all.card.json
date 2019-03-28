@@ -1,8 +1,8 @@
 {
-    "INIT2": {
+    "INIT": {
         "uid": "0",
         "msgs": [
-            "For <b>MVP</b> we only have <b>ML</b> quiz",
+            "For <b>MVP</b> we only have <b>ML</b>",
             "Wanna try?"
         ],
         "replies": [
@@ -30,12 +30,12 @@
             "Something wrong..."
         ]
     },
-    "INIT": {
+    "BEGIN": {
         "uid": "0",
         "msgs": [
             "Let's start!"
         ],
-        "game": "ml/Precision"
+        "deck": "/ml/google_crash_course/index.json"
     },
     "END": {
         "uid": "0",

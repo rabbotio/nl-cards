@@ -5,6 +5,7 @@ import { getChatStyle, getTypingChatData } from './RBChatStyles'
 
 import { addController } from './RBChatController'
 import DeckFactory from '../factory/DeckFactory'
+import GameFactory from '../factory/GameFactory'
 import { applyProfile, initProfile, getProfile } from './RBChatProfile'
 
 const Containerz = styled.div`
@@ -42,6 +43,7 @@ function RBChatContainer () {
   const [chatDatas, setChatDatas] = useState([json[chatId]])
   const [topic, setTopic] = useState('')
   const [source, setSource] = useState('')
+  const [game, setGame] = useState('')
   // const [deckDatas, setDeckDatas] = useState(getDecks(topic))
   const [email, setEmail] = useState('')
   const chatRef = React.createRef()
@@ -82,9 +84,30 @@ function RBChatContainer () {
 
   useEffect(
     () => {
+      if (!game || game === '') return
+      ;(async () => {
+        const nextId = await GameFactory.build(json, game, source)
+        applyProfile(json)
+        typing(nextId).then(() => goto(nextId))
+      })()
+    },
+    [game]
+  )
+
+  useEffect(
+    () => {
       // Play deck?
       const currentChatData = chatDatas[chatDatas.length - 1]
-      const { deck, jump } = currentChatData
+      const { game, deck, jump } = currentChatData
+
+      if (game) {
+        // eslint-disable-next-line
+        const [_topic, _game] = game.split('/')
+        console.log(_topic, _game)
+        setSource(_game)
+        setGame(_topic)
+        return
+      }
 
       if (deck) {
         // eslint-disable-next-line
@@ -108,11 +131,19 @@ function RBChatContainer () {
   )
 
   // Collect lost
-  const callback = value => {
-    if (!value) return
-
-    const { ans, index } = JSON.parse(value)
-    if (ans === 'no') user.losts.push(index)
+  const callback = (value, type = 'CHOICE') => {
+    switch (type) {
+      case 'CARD':
+        const { ans, index } = JSON.parse(value)
+        if (ans === 'no') user.losts.push(index)
+        break
+      case 'CHOICE':
+        // TODO : Validate choice
+        console.log(value)
+        break
+      default:
+        throw new Error('Required type')
+    }
   }
 
   // Add input events mostly

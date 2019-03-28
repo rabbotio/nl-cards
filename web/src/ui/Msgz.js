@@ -15,7 +15,8 @@ const Imagez = styled.img`
   }
 `
 
-const buildMessage = msgs => msgs && msgs.map((msg, index) => <p key={index}>{ReactHtmlParser(msg)}</p>)
+const buildMessage = msgs =>
+  msgs && msgs.map((msg, index) => <p key={index}>{typeof msg === 'string' ? ReactHtmlParser(msg) : msg}</p>)
 const buildImages = imgs => imgs && imgs.map((src, index) => <Imagez key={index} src={src} />)
 
 const Holderz = styled.div`
