@@ -4,7 +4,7 @@ import styled from 'styled-components'
 import { getChatStyle, getTypingChatData } from './RBChatStyles'
 
 import { addController } from './RBChatController'
-import DeckFactory from '../factory/DeckFactory'
+// import DeckFactory from '../factory/DeckFactory'
 import GameFactory from '../factory/GameFactory'
 import { applyProfile, initProfile, getProfile } from './RBChatProfile'
 

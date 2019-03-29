@@ -1,6 +1,7 @@
 import React from 'react'
 import Precision from '../games/ml/Precision'
 import GameComponent from '../games/GameComponent'
+import _ from 'lodash'
 
 const getReplies = answers =>
   answers.map((ans, index) => {
@@ -18,7 +19,8 @@ export default class GameFactory {
 
     // TODO : source -> Precision, Recall, Accuracy, F1
     const { datas, selections, answers } = Precision.build()
-    const replies = getReplies(answers)
+    let replies = getReplies(answers)
+    replies = _.shuffle(replies)
 
     const gameData = {
       'GAME.0': {

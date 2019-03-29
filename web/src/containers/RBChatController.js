@@ -56,10 +56,10 @@ function addController (user, { setTopic, setEmail, json, goto, email, chatDatas
   const botContext = chatData.context
   if (!chatData) return
 
-  console.log(`botContext:${botContext}`)
+  // console.log(`botContext:${botContext}`)
 
   const lost = user.losts.length
-  console.log(lost)
+  // console.log(lost)
 
   switch (botContext) {
     case 'QUEST_END':
