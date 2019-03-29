@@ -139,7 +139,12 @@ function RBChatContainer () {
         break
       case 'CHOICE':
         // TODO : Validate choice
-        console.log(value)
+        console.log(`'CHOICE':` + value)
+        const { valid } = JSON.parse(value)
+        console.log(`valid:` + valid)
+        if (valid !== 'OK') user.losts.push(index)
+        console.log(`'user.losts':` + user.losts)
+
         break
       default:
         throw new Error('Required type')

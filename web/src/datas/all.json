@@ -1,4 +1,11 @@
 {
+    "INIT": {
+        "uid": "0",
+        "msgs": [
+            "Jump!"
+        ],
+        "jump": "BEGIN"
+    },
     "INIT2": {
         "uid": "0",
         "msgs": [
@@ -30,7 +37,7 @@
             "Something wrong..."
         ]
     },
-    "INIT": {
+    "BEGIN": {
         "uid": "0",
         "msgs": [
             "Let's start!"

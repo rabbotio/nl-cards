@@ -6,7 +6,7 @@ const getReplies = answers =>
   answers.map((ans, index) => {
     return {
       label: ans,
-      value: JSON.stringify({ ans, index, valid: index === 0 ? 'ΟΚ' : 'OK' }),
+      value: JSON.stringify({ ans, index, valid: index === 0 ? 'OK' : 'ΟΚ' }),
       jump: 'QUEST_END'
     }
   })
