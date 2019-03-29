@@ -43,7 +43,7 @@ function RBChatContainer () {
   const [chatDatas, setChatDatas] = useState([json[chatId]])
   const [topic, setTopic] = useState('')
   const [source, setSource] = useState('')
-  const [game, setGame] = useState('')
+
   // const [deckDatas, setDeckDatas] = useState(getDecks(topic))
   const [email, setEmail] = useState('')
   const chatRef = React.createRef()
@@ -70,6 +70,7 @@ function RBChatContainer () {
     return nextId
   }
 
+  /* TODO : Revisit Deck
   useEffect(
     () => {
       if (!topic || topic === '') return
@@ -81,17 +82,18 @@ function RBChatContainer () {
     },
     [topic]
   )
+  */
 
   useEffect(
     () => {
-      if (!game || game === '') return
+      if (!topic || topic === '') return
       ;(async () => {
-        const nextId = await GameFactory.build(json, game, source)
+        const nextId = await GameFactory.build(json, topic, source)
         applyProfile(json)
         typing(nextId).then(() => goto(nextId))
       })()
     },
-    [game]
+    [topic]
   )
 
   useEffect(
@@ -105,7 +107,7 @@ function RBChatContainer () {
         const [_topic, _game] = game.split('/')
         console.log(_topic, _game)
         setSource(_game)
-        setGame(_topic)
+        setTopic(_topic)
         return
       }
 
