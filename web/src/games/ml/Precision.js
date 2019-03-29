@@ -71,7 +71,7 @@ export default class GameFactory {
   static build = () => {
     // Props
     const total = 4
-    const mode = 'PRECISION'
+    // const mode = 'PRECISION'
 
     // Predefined
     const SAMPLES = ['🍏', '🍎']
