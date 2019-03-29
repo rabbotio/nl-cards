@@ -1,3 +1,5 @@
+import _ from 'lodash'
+
 const getPrecision = selections => {
   let TP = 0
   let FP = 0
@@ -17,11 +19,12 @@ const getPrecision = selections => {
 }
 
 const getAnswers = (selections, totalAnswers = 4) => {
-  let { answer } = getPrecision(selections)
+  let { answer, how, solution } = getPrecision(selections)
   let answers = Array(totalAnswers).fill('?')
   answers = answers.map(e => (answer + (answer + 0.1) * Math.random() - (answer - 0.1) * Math.random()).toFixed(2))
   answers[0] = answer.toFixed(2)
-  return answers
+
+  return { answers, how, solution }
 }
 
 const getTF = SAMPLES => ({ F: SAMPLES[0], T: SAMPLES[SAMPLES.length - 1] })
@@ -83,8 +86,15 @@ export default class GameFactory {
     const selections = getSelections(SAMPLES, datas)
 
     // Get answer
-    const answers = getAnswers(selections)
+    let answersObject
+    let _answers
+    do {
+      answersObject = getAnswers(selections)
 
-    return { datas, selections, answers }
+      // Ensure Answer is unique
+      _answers = _.uniq(answersObject.answers)
+    } while (_answers.length !== answersObject.answers.length)
+
+    return Object.assign({ datas, selections }, answersObject)
   }
 }

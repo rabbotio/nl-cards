@@ -9,7 +9,7 @@ import { Buttonz } from '../ui/Buttonz'
 </Buttonz>
 */
 
-const isPositive = label => label.toLowerCase().indexOf('yes') > -1
+const isPositive = label => label.toLowerCase().indexOf('yes') > -1 || label.toLowerCase().indexOf('hint') > -1
 const isNegative = label => label.toLowerCase().indexOf('no') > -1
 
 const backgroudColor = label => {

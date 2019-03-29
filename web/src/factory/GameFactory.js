@@ -7,7 +7,7 @@ const getReplies = answers =>
   answers.map((ans, index) => {
     return {
       label: ans,
-      value: JSON.stringify({ ans, index, valid: index === 0 ? 'OK' : 'ΟΚ' }),
+      value: JSON.stringify({ ans, valid: index === 0 ? 'OK' : 'ΟΚ' }),
       jump: 'QUEST_END'
     }
   })
@@ -18,16 +18,29 @@ export default class GameFactory {
     if (!source || source === '') return
 
     // TODO : source -> Precision, Recall, Accuracy, F1
-    const { datas, selections, answers } = Precision.build()
+    const { datas, selections, answers, how, solution } = Precision.build()
     let replies = getReplies(answers)
     replies = _.shuffle(replies)
 
     const gameData = {
-      'GAME.0': {
+      'GAME.START': {
         uid: '0',
         msgs: [`How <b>"${source}"</b> is this?`, <GameComponent datas={datas} selections={selections} />],
         replies
       }
+    }
+    console.log(123)
+    // Hint
+    gameData['GAME.START'].replies.push({
+      label: 'HINT',
+      value: JSON.stringify({ valid: 'HINT' }),
+      jump: 'GAME.HINT'
+    })
+
+    gameData['GAME.HINT'] = {
+      uid: '0',
+      msgs: [how, solution],
+      jump: 'GAME.START'
     }
 
     const nextId = Object.keys(gameData)[0]
