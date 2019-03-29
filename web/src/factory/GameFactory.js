@@ -2,36 +2,29 @@ import React from 'react'
 import Precision from '../games/ml/Precision'
 import GameComponent from '../games/GameComponent'
 
+const getReplies = answers =>
+  answers.map((e, i) => {
+    return {
+      label: e,
+      value: JSON.stringify({ ans: e, i }),
+      jump: 'END'
+    }
+  })
+
 export default class GameFactory {
   static async build (json, topic, source) {
     if (!topic || topic === '') return
     if (!source || source === '') return
 
+    // TODO : source -> Precision, Recall, Accuracy, F1
     const { datas, selections, answers } = Precision.build()
+    const replies = getReplies(answers)
 
-    // TODO : generate from index.js
     const gameData = {
       'GAME.0': {
         uid: '0',
-        msgs: ['How <b>"Precision"</b> is this?', <GameComponent datas={datas} selections={selections} />],
-        replies: [
-          {
-            label: '0.2',
-            jump: 'END'
-          },
-          {
-            label: '0.5',
-            jump: 'END'
-          },
-          {
-            label: '0.7',
-            jump: 'END'
-          },
-          {
-            label: '1.0',
-            jump: 'END'
-          }
-        ]
+        msgs: [`How <b>"${source}"</b> is this?`, <GameComponent datas={datas} selections={selections} />],
+        replies
       }
     }
 
