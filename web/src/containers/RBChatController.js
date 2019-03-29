@@ -58,12 +58,27 @@ function addController (user, { setTopic, setEmail, json, goto, email, chatDatas
 
   console.log(`botContext:${botContext}`)
 
+  const lost = user.losts.length
+  console.log(lost)
+
   switch (botContext) {
-    case 'END':
-      const lost = user.losts.length
+    case 'QUEST_END':
+      // Add score
+      chatData.msgs = fillScore(
+        chatData.msgs,
+        `${lost <= 0 ? 'Complete all' : `You failed ${lost}`} quest${lost === 1 ? '!' : 's!'}`
+      )
 
-      console.log(lost)
+      if (lost > 0) {
+        // Reset and Retry
+        user.context = 'RETRY'
+        user.losts = []
+        setTopic('')
 
+        goto('RETRY')
+      }
+      break
+    case 'CARD_END':
       // Add score
       chatData.msgs = fillScore(chatData.msgs, `${lost <= 0 ? 'no' : lost} memor${lost === 1 ? 'y' : 'ies'}`)
 

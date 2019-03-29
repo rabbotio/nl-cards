@@ -37,7 +37,14 @@
         ],
         "game": "ml/Precision"
     },
-    "END": {
+    "QUEST_END": {
+        "uid": "0",
+        "msgs": [
+            "{{score}}"
+        ],
+        "jump": "KEEP_SCORE"
+    },
+    "CARD_END": {
         "uid": "0",
         "msgs": [
             "You lost {{score}}!"
@@ -50,6 +57,19 @@
             "Try again!"
         ],
         "jump": "BEGIN"
+    },
+    "KEEP_SCORE": {
+        "uid": "0",
+        "msgs": [
+            "We will need your <b>email</b> to keep your score",
+            "What's your email address plz?"
+        ],
+        "inputs": [
+            {
+                "type": "email",
+                "jump": "CONFIRM_EMAIL"
+            }
+        ]
     },
     "INPUT_EMAIL": {
         "uid": "0",

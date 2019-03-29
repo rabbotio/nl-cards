@@ -3,11 +3,11 @@ import Precision from '../games/ml/Precision'
 import GameComponent from '../games/GameComponent'
 
 const getReplies = answers =>
-  answers.map((e, i) => {
+  answers.map((ans, index) => {
     return {
-      label: e,
-      value: JSON.stringify({ ans: e, i }),
-      jump: 'END'
+      label: ans,
+      value: JSON.stringify({ ans, index, valid: index === 0 ? 'ΟΚ' : 'OK' }),
+      jump: 'QUEST_END'
     }
   })
 
