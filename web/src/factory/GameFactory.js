@@ -1,23 +1,19 @@
-import React, { Suspense } from 'react'
-// import GameComponent from '../components/GameComponent'
+import React from 'react'
+import Precision from '../games/ml/Precision'
+import GameComponent from '../games/GameComponent'
 
 export default class GameFactory {
   static async build (json, topic, source) {
     if (!topic || topic === '') return
     if (!source || source === '') return
 
-    const GameComponent = React.lazy(() => import(`../games/${topic}/${source}`))
+    const { datas, selections, answers } = Precision.build()
 
     // TODO : generate from index.js
     const gameData = {
       'GAME.0': {
         uid: '0',
-        msgs: [
-          'How <b>"Precision"</b> is this?',
-          <Suspense fallback={<span>loading...</span>}>
-            <GameComponent />
-          </Suspense>
-        ],
+        msgs: ['How <b>"Precision"</b> is this?', <GameComponent datas={datas} selections={selections} />],
         replies: [
           {
             label: '0.2',
