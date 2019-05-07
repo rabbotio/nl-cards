@@ -40,6 +40,8 @@ const scrollToBottom = ref => setTimeout(() => ref.scrollIntoView({ block: 'end'
 function RBChatContainer () {
   const user = useContext(UserContext)
   const [chatId, setChatId] = useState('INIT')
+  const [nextId, setNextId] = useState('')
+  const [typeAndJumpId, setTypeAndJumpId] = useState('')
   const [chatDatas, setChatDatas] = useState([json[chatId]])
   const [topic, setTopic] = useState('')
   const [source, setSource] = useState('')
@@ -47,16 +49,6 @@ function RBChatContainer () {
   // const [deckDatas, setDeckDatas] = useState(getDecks(topic))
   const [email, setEmail] = useState('')
   const chatRef = useRef(null)
-
-  const typing = async (nextId, delay = 1000) => {
-    const { uid, name, img } = json[nextId]
-
-    const typingChatData = getTypingChatData({ uid, name, img })
-    const typingChatDatas = chatDatas.concat(typingChatData)
-    setChatDatas(typingChatDatas)
-
-    return new Promise(r => setTimeout(r, delay))
-  }
 
   const goto = async nextId => {
     const nextChatData = Object.assign({}, json[nextId])
@@ -67,8 +59,36 @@ function RBChatContainer () {
     const _nextChatDatas = nextChatDatas.slice(nextChatDatas.length - 16, nextChatDatas.length)
     setChatDatas(_nextChatDatas)
 
+    const delay = parseInt(nextChatData.typing)
+    if (delay > 0) {
+      return new Promise(_ => setTimeout(_, delay)).then(() => goto(nextChatData.jump))
+    }
+
     return nextId
   }
+
+  useEffect(
+    () => {
+      if (!nextId || nextId === '') return
+      goto(nextId)
+    },
+    [nextId]
+  )
+
+  useEffect(
+    () => {
+      if (!typeAndJumpId || typeAndJumpId === '') return
+      // Will add typing msg
+      const { uid, name, img } = json[typeAndJumpId]
+
+      const typingChatData = getTypingChatData({ uid, name, img, jump: typeAndJumpId })
+      const typingId = '_' + typeAndJumpId
+      json[typingId] = typingChatData
+
+      setNextId(typingId)
+    },
+    [typeAndJumpId]
+  )
 
   useEffect(
     () => {
@@ -76,10 +96,10 @@ function RBChatContainer () {
       ;(async () => {
         const nextId = await GameFactory.build(json, topic, source)
         applyProfile(json)
-        typing(nextId).then(() => goto(nextId))
+        setTypeAndJumpId(nextId)
       })()
     },
-    [topic]
+    [topic, source]
   )
 
   useEffect(
@@ -108,7 +128,7 @@ function RBChatContainer () {
 
       // Jump?
       if (jump) {
-        typing(jump).then(() => goto(jump))
+        setTypeAndJumpId(jump)
         return
       }
 

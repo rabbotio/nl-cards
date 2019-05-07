@@ -115,7 +115,7 @@ function getChatStyle (myBG, yourBG) {
   `
 }
 
-const getTypingChatData = ({ uid, name, img }) =>
+const getTypingChatData = ({ uid, name, img, jump, typing = 1000 }) =>
   Object.assign(
     {},
     {
@@ -128,7 +128,9 @@ const getTypingChatData = ({ uid, name, img }) =>
 <span class="dot"></span>
 <span class="dot"></span>
 </span>`
-      ]
+      ],
+      jump,
+      typing
     }
   )
 
