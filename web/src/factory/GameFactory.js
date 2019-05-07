@@ -1,5 +1,5 @@
 import React from 'react'
-import Precision from '../games/ml/Precision'
+// import Precision from '../games/ml/Precision'
 import GameComponent from '../games/GameComponent'
 import _ from 'lodash'
 
@@ -17,8 +17,16 @@ export default class GameFactory {
     if (!topic || topic === '') return
     if (!source || source === '') return
 
+    console.dir(`${topic}/${source}`)
+
+    // Load game
+    const Precision = await import('../games/ml/Precision')
+    const Recall = await import('../games/ml/Recall')
+    const GAMES = { Precision, Recall }
+    const GAME = GAMES[source].default
+
     // TODO : source -> Precision, Recall, Accuracy, F1
-    const { datas, selections, answers, how, solution } = Precision.build()
+    const { datas, selections, answers, how, solution } = GAME.build()
     let replies = getReplies(answers)
     replies = _.shuffle(replies)
 
