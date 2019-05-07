@@ -52,6 +52,7 @@ function RBChatContainer () {
 
   const goto = async nextId => {
     const nextChatData = Object.assign({}, json[nextId])
+
     const nextChatDatas = chatDatas.concat(nextChatData)
     setChatId(nextId)
 
@@ -78,11 +79,12 @@ function RBChatContainer () {
   useEffect(
     () => {
       if (!typeAndJumpId || typeAndJumpId === '') return
+
       // Will add typing msg
       const { uid, name, img } = json[typeAndJumpId]
 
       const typingChatData = getTypingChatData({ uid, name, img, jump: typeAndJumpId })
-      const typingId = '_' + typeAndJumpId
+      const typingId = '_typing_' + typeAndJumpId
       json[typingId] = typingChatData
 
       setNextId(typingId)
@@ -111,7 +113,6 @@ function RBChatContainer () {
       if (game) {
         // eslint-disable-next-line
         const [_topic, _game] = game.split('/')
-        console.log(_topic, _game)
         setSource(_game)
         setTopic(_topic)
         return
@@ -120,7 +121,6 @@ function RBChatContainer () {
       if (deck) {
         // eslint-disable-next-line
         const [_, _topic, _source] = deck.split('/')
-        console.log(_topic, _source)
         setSource(_source)
         setTopic(_topic)
         return
@@ -147,11 +147,8 @@ function RBChatContainer () {
         break
       case 'CHOICE':
         // TODO : Validate choice
-        console.log(`'CHOICE':` + value)
         const { valid } = JSON.parse(value)
-        console.log(`valid:` + valid)
         if (valid !== 'OK') user.losts.push(index)
-        console.log(`'user.losts':` + user.losts)
 
         break
       default:

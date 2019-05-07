@@ -56,10 +56,9 @@ function addController (user, { setTopic, setEmail, json, goto, email, chatDatas
   const botContext = chatData.context
   if (!chatData) return
 
-  // console.log(`botContext:${botContext}`)
+  // botContext && console.log(`botContext:${botContext}`)
 
   const lost = user.losts.length
-  // console.log(lost)
 
   switch (botContext) {
     case 'QUEST_END':
@@ -70,6 +69,7 @@ function addController (user, { setTopic, setEmail, json, goto, email, chatDatas
       )
 
       if (lost > 0) {
+        console.log('lost:' + lost)
         // Reset and Retry
         user.context = 'RETRY'
         user.losts = []

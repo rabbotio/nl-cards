@@ -17,7 +17,7 @@ export default class GameFactory {
     if (!topic || topic === '') return
     if (!source || source === '') return
 
-    console.dir(`${topic}/${source}`)
+    // console.dir(`${topic}/${source}`)
 
     // TODO : source -> Accuracy, F1
 
