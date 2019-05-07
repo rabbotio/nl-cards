@@ -73,7 +73,7 @@
         ],
         "inputs": [
             {
-                "type": "sd",
+                "type": "email",
                 "jump": "CONFIRM_EMAIL"
             }
         ]
