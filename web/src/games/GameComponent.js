@@ -12,15 +12,13 @@ const Pz = styled.span`
    {
     background-color: lightpink;
     border-radius: 6px;
-    padding: 0.3em 0.1em 0.3em 0.3em;
+    padding: 0.3em 0.1em 0.3em 0.4em;
     margin-left: 0.2em;
-    letter-spacing: 0.2em;
   }
 `
 const Nz = styled.span`
    {
     padding: 0.1em 0em 0.1em 0.3em;
-    letter-spacing: 0.2em;
   }
 `
 
