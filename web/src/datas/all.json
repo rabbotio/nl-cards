@@ -2,7 +2,7 @@
     "INIT": {
         "uid": "0",
         "msgs": [
-            "Jump!"
+            "Welcome!"
         ],
         "jump": "BEGIN"
     },
@@ -73,7 +73,7 @@
         ],
         "inputs": [
             {
-                "type": "email",
+                "type": "sd",
                 "jump": "CONFIRM_EMAIL"
             }
         ]
