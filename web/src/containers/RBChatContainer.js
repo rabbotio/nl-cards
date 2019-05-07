@@ -1,4 +1,4 @@
-import React, { useState, useContext, useEffect } from 'react'
+import React, { useState, useContext, useEffect, useRef } from 'react'
 import Msgz from '../ui/Msgz'
 import styled from 'styled-components'
 import { getChatStyle, getTypingChatData } from './RBChatStyles'
@@ -46,7 +46,7 @@ function RBChatContainer () {
 
   // const [deckDatas, setDeckDatas] = useState(getDecks(topic))
   const [email, setEmail] = useState('')
-  const chatRef = React.createRef()
+  const chatRef = useRef(null)
 
   const typing = async (nextId, delay = 1000) => {
     const { uid, name, img } = json[nextId]
@@ -69,20 +69,6 @@ function RBChatContainer () {
 
     return nextId
   }
-
-  /* TODO : Revisit Deck
-  useEffect(
-    () => {
-      if (!topic || topic === '') return
-      ;(async () => {
-        const nextId = await DeckFactory.build(json, topic, source)
-        applyProfile(json)
-        typing(nextId).then(() => goto(nextId))
-      })()
-    },
-    [topic]
-  )
-  */
 
   useEffect(
     () => {
