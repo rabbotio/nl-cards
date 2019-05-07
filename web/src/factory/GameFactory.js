@@ -1,5 +1,5 @@
 import React from 'react'
-// import Precision from '../games/ml/Precision'
+import PRAF1 from '../games/ml/PRAF1'
 import GameComponent from '../games/GameComponent'
 import _ from 'lodash'
 
@@ -19,14 +19,16 @@ export default class GameFactory {
 
     console.dir(`${topic}/${source}`)
 
+    // TODO : source -> Accuracy, F1
+
     // Load game
     const Precision = await import('../games/ml/Precision')
     const Recall = await import('../games/ml/Recall')
     const GAMES = { Precision, Recall }
-    const GAME = GAMES[source].default
+    const generator = GAMES[source].generator
 
-    // TODO : source -> Precision, Recall, Accuracy, F1
-    const { datas, selections, answers, how, solution } = GAME.build()
+    // Build game
+    const { datas, selections, answers, how, solution } = PRAF1.build(generator)
     let replies = getReplies(answers)
     replies = _.shuffle(replies)
 
@@ -37,7 +39,7 @@ export default class GameFactory {
         replies
       }
     }
-    console.log(123)
+
     // Hint
     gameData['GAME.START'].replies.push({
       label: 'HINT',

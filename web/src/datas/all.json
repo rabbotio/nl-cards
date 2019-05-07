@@ -42,7 +42,7 @@
         "msgs": [
             "Let's start!"
         ],
-        "game": "ml/Recall"
+        "game": "ml/Precision"
     },
     "QUEST_END": {
         "uid": "0",
