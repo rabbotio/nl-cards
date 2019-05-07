@@ -92,8 +92,8 @@ function addController (user, { setTopic, setEmail, json, goto, email, chatDatas
       }
       break
     case 'CONFIRM_EMAIL':
-      if (!email || lost <= 0) break
-
+      if (!email) break
+      user.context = 'CONFIRM_EMAIL'
       chatData.msgs = fillEmail(chatData.msgs, email)
       break
     default:

@@ -139,20 +139,16 @@ function RBChatContainer () {
   )
 
   // Collect lost
-  const callback = (value, type = 'CHOICE') => {
-    switch (type) {
-      case 'CARD':
-        const { ans, index } = JSON.parse(value)
-        if (ans === 'no') user.losts.push(index)
-        break
-      case 'CHOICE':
-        // TODO : Validate choice
-        const { valid } = JSON.parse(value)
-        if (valid !== 'OK') user.losts.push(index)
-
+  const callback = value => {
+    switch (user.context) {
+      case 'CONFIRM_EMAIL':
+        // Do something?
         break
       default:
-        throw new Error('Required type')
+        console.log('callback:', value)
+        const { valid, ans } = JSON.parse(value)
+        if (valid !== 'OK') user.losts.push(ans)
+        break
     }
   }
 
